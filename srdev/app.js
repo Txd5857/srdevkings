@@ -4,9 +4,9 @@ const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const TeamRoutes = require('./api/routes/team.route');
 const BusRoutes = require('./api/routes/bus.route');
-// const GuardianRoutes = require('./api/routes/guardian.route');
-// const MissionRoutes = require('./api/routes/mission.route');
-// const VeteranRoutes = require('./api/routes/veteran.route');
+const GuardianRoutes = require('./api/routes/guardian.route');
+const MissionRoutes = require('./api/routes/mission.route');
+const VeteranRoutes = require('./api/routes/veteran.route');
 
 
 app.use(morgan('dev'));
@@ -29,9 +29,9 @@ app.use((req,res,next) => {
 //Routes 
 app.use('/api/teams', TeamRoutes);
 app.use('/api/buses', BusRoutes);
-// app.use('/api/teams', GuardianRoutes);
-// app.use('/api/buses', MissionRoutes);
-// app.use('/api/teams', VeteranRoutes);
+app.use('/api/guardians', GuardianRoutes);
+app.use('/api/missions', MissionRoutes);
+app.use('/api/veterans', VeteranRoutes);
 
 app.use((req,res,next) => {
     const error = new Error("Not Found");
