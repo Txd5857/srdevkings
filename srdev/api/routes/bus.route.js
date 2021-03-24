@@ -3,19 +3,19 @@ const router = express.Router();
 
 const busController = require('../controllers/bus.controller');
 
-// get all employees
+// get all buss
 router.get('/', busController.getBusList);
 
-// get employee by ID
+// get bus by ID
 router.get('/:id',busController.getBusByID);
 
-// create new employee
+// create new bus
 router.post('/', busController.createNewBus);
 
-// update employee
+// update bus
 router.put('/:id', busController.updateBus);
 
-// delete employee
+// delete bus
 router.delete('/:id',busController.deleteBus);
 
 module.exports = router;
