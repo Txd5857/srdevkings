@@ -28,6 +28,10 @@ app.use((req,res,next) => {
 app.use('/api/teams', TeamRoutes);
 app.use('/api/buses', BusRoutes);
 
+app.use('/admin', function(req,res){
+    res.sendFile(___dirname + "/html/delete.html");
+});
+
 app.use((req,res,next) => {
     const error = new Error("Not Found");
     error.status = 404;
