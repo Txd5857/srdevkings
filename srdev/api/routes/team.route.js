@@ -3,19 +3,19 @@ const router = express.Router();
 
 const teamController = require('../controllers/team.controller');
 
-// get all employees
+// get all teams
 router.get('/', teamController.getTeamList);
 
-// get employee by ID
+// get team by ID
 router.get('/:id',teamController.getTeamByID);
 
-// create new employee
+// create new team
 router.post('/', teamController.createNewTeam);
 
-// update employee
+// update team
 router.put('/:id', teamController.updateTeam);
 
-// delete employee
+// delete team
 router.delete('/:id',teamController.deleteTeam);
 
 module.exports = router;
