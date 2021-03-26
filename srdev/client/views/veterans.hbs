@@ -1,0 +1,20 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title> Veterans </title>
+  <link rel="stylesheet" href="/css/style.scss">
+
+</head>
+
+<body>
+  <!-- <script src="js/scripts.js"></script> -->
+  <h1 class="yur"> Veterans </h1>
+    {{#each veterans}}
+    <option value={{this.veteran_id}}>{{this.first_name}}</option>
+    {{/each}}
+    
+    </body>
+</html>

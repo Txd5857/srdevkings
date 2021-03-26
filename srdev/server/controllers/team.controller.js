@@ -2,16 +2,17 @@
 const TeamModel = require('../models/team.model');
 
 // get all team list
-exports.getTeamList = (req, res)=> {
-    //console.log('here all employees list');
-    TeamModel.getAllTeams((err, employees) =>{
-        console.log('We are here');
-        if(err)
+exports.getTeamList = async (req, res, next)=> {
+    try{
+        let results = await TeamModel.getAllTeams();
+        res.json(results);
+    }catch (err){
+        console.log(err);
         res.send(err);
-        console.log('Teams', employees);
-        res.send(employees)
-    })
-}
+        res.sendStatus(500);
+    }
+
+};
 
 // get team by ID
 exports.getTeamByID = (req, res)=>{

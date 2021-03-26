@@ -1,7 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 
-const mysqlConnection = require("../../db_config/connection");
+const mysqlConnection = require("../db_config/connection");
 
 const Guardian = function(guardian){
     this.guardian_id = guardian.guardian_id,

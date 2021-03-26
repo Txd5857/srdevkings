@@ -1,7 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 
-const mysqlConnection = require("../../db_config/connection");
+const mysqlConnection = require("../db_config/connection");
 
 const Mission = function(mission){
     this.mission_id = mission.mission_id,

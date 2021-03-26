@@ -1,7 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 
-const mysqlConnection = require("../../db_config/connection");
+const mysqlConnection = require("../db_config/connection");
 
 const Team = function(team){
     this.team_id = team.team_id,
@@ -13,17 +13,16 @@ const Team = function(team){
 }
 
 // get all teams
-Team.getAllTeams = (result) =>{
-    mysqlConnection.query('SELECT * FROM team', (err, res)=>{
-        if(err){
-            console.log('Error while fetching employess', err);
-            result(null,err);
-        }else{
-            console.log('Teams fetched successfully');
-            result(null,res);
-        }
-    })
-}
+Team.getAllTeams = () =>{
+    return new Promise( (resolve,reject) => {
+        mysqlConnection.query('SELECT * FROM team', (err, res)=>{
+            if(err) {
+                return reject(err);
+            } 
+            return resolve(res);
+        });
+    });
+};
 
 // get team by ID from DB
 Team.getTeamByID = (id, result)=>{

@@ -2,15 +2,17 @@
 const VeteranModel = require('../models/veteran.model');
 
 // get all veteran list
-exports.getVeteranList = (req, res)=> {
+exports.getVeteranList = async (req, res,next)=> {
     //console.log('here all employees list');
-    VeteranModel.getAllVeterans((err, employees) =>{
-        console.log('We are here');
-        if(err)
-        res.send(err);
-        console.log('Veterans', employees);
-        res.send(employees)
-    })
+    try{
+        let results = await VeteranModel.getAllVeterans();
+        console.log(results);
+        res.json(results);
+    }catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+   
 }
 
 // get veteran by ID

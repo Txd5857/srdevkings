@@ -1,7 +1,7 @@
 const express = require("express");
 const Router = express.Router();
-
-const mysqlConnection = require("../../db_config/connection");
+const mysql = require('mysql');
+const mysqlConnection = require("../db_config/connection");
 
 const Veteran = function(veteran){
     this.veteran_id = veteran.veteran_id,
@@ -81,19 +81,28 @@ const Veteran = function(veteran){
     this.admin_comments = veteran.admin_comments,
     this.last_updated = veteran.last_updated
 }
-
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    password: 'password',
+    user: 'root',
+    database: 'honor_flight',
+    host: 'localhost',
+    connectTimeout  : 60 * 60 * 1000,
+    acquireTimeout  : 60 * 60 * 1000,
+    timeout         : 60 * 60 * 1000
+});
 // get all teams
-Veteran.getAllVeterans = (result) =>{
-    mysqlConnection.query('SELECT * FROM veteran', (err, res)=>{
-        if(err){
-            console.log('Error while fetching veterans', err);
-            result(null,err);
-        }else{
-            console.log('Veterans fetched successfully');
-            result(null,res);
-        }
-    })
-}
+Veteran.getAllVeterans = () =>{
+    return new Promise( (resolve,reject) => {
+        mysqlConnection.query('SELECT * FROM veteran', (err, res)=>{
+            if(err) {
+                return reject(err);
+            } 
+            return resolve(res);
+        });
+    });
+  
+};
 
 // get veteran by ID from DB
 Veteran.getVeteranByID = (id, result)=>{
