@@ -21,7 +21,7 @@ exports.getVeteranByID = (req, res)=>{
     VeteranModel.getVeteranByID(req.params.id, (err, veteran)=>{
         if(err)
         res.send(err);
-        console.log('single veteran data',veteran);
+        console.log('single veteran data',veteran[0]);
         res.send(veteran);
     })
 }

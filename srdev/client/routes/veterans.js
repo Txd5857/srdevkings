@@ -1,16 +1,21 @@
 const express = require('express');
-const veteranRouter = express.Router();
+const veteransRouter = express.Router();
 const axios = require('axios');
 
-// const veteran_list = [];
-veteranRouter.get('/veterans', async(req,res)=>{
 
+veteransRouter.use(function timeLog (req, res, next) {
+    console.log('Time: ', Date.now())
+    next()
+  });
+
+// const veteran_list = [];
+veteransRouter.get('', async(req,res)=>{
     try {
          const veteranAPI = await axios.get('http://localhost:5002/api/veterans');
         //  console.log("faa",veteranAPI.data);
         //  veteran_list = veteranAPI.data;
          res.render('veterans', { veterans : veteranAPI.data});
-         console.log("teat");
+         console.log("teat",veterans);
     }catch (error) {
         if(error.response){
             console.log(error.response.data);
@@ -20,22 +25,25 @@ veteranRouter.get('/veterans', async(req,res)=>{
     // res.render('veterans');
 });
 
-veteranRouter.get('/:id', async(req,res)=>{
-    const vetid = req.params.id;
-    const url = "http://localhost:5002/api/veterans/"+vetid;
-
-    console.log(url);
+veteransRouter.get('/:id', async(req,res)=>{
+    const veteran_id = req.params.id;
+    console.log(veteran_id);
+    const api_url = "http://localhost:5002/api/veterans/"+veteran_id;
     try {
-        const veteranAPI = await axios.get('http://localhost:5002/api/veterans/3700');
-        console.log(veteranAPI.data);
-        res.render('homepage');
-   }catch (error) {
-       if(error.response){
-           console.log(error.response.data);
-       }
-   }
+         const veteranAPI = await axios.get(api_url);
+        //  console.log("faa",veteranAPI.data);
+        //  veteran_list = veteranAPI.data;
+         res.render('veteran', { veteran_id : veteran_id, veteran : veteranAPI.data});
+         console.log("completed",veteran);
+    }catch (error) {
+        if(error.response){
+            console.log(error.response.data);
+        }
+    }
+    // console.log("try");
+    // res.render('veterans');
 });
 
 
 
-module.exports = veteranRouter;
+module.exports = veteransRouter;
