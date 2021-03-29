@@ -2,14 +2,15 @@ const express = require('express');
 const veteranRouter = express.Router();
 const axios = require('axios');
 
-const veteran_list = [];
+// const veteran_list = [];
 veteranRouter.get('/veterans', async(req,res)=>{
 
     try {
          const veteranAPI = await axios.get('http://localhost:5002/api/veterans');
-         console.log(veteranAPI.data);
-         veteran_list = veteranAPI.data;
+        //  console.log("faa",veteranAPI.data);
+        //  veteran_list = veteranAPI.data;
          res.render('veterans', { veterans : veteranAPI.data});
+         console.log("teat");
     }catch (error) {
         if(error.response){
             console.log(error.response.data);
@@ -25,9 +26,9 @@ veteranRouter.get('/:id', async(req,res)=>{
 
     console.log(url);
     try {
-        const veteranAPI = await axios.get('/api/veterans/3700');
+        const veteranAPI = await axios.get('http://localhost:5002/api/veterans/3700');
         console.log(veteranAPI.data);
-        res.render('veteran', { veteran : veteranAPI.data});
+        res.render('homepage');
    }catch (error) {
        if(error.response){
            console.log(error.response.data);

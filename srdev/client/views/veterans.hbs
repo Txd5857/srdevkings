@@ -2,15 +2,15 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title> Veterans </title>
-  <link rel="stylesheet" href="/css/style.scss">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title> Veterans </title>
+    <link rel="stylesheet" href="/css/style.scss">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style> 
 
 /* BASIC */
@@ -123,15 +123,9 @@
 
 <body>
   <!-- <script src="js/scripts.js"></script> -->
-  <h1 class="yur"> Veterans </h1>
-    
-  
-
-
-<!------ Include the above in your HEAD tag ---------->
-
-
-<nav class="navbar navbar-expand-md bg-light navbar-light">
+<h1 class="yur"> Veterans </h1>
+{{!-- {{> navigation }} --}}
+{{!-- <nav class="navbar navbar-expand-md bg-light navbar-light">
     <a href="content.html" class="fadeIn backButton" role="button" aria-disabled="true"><span class="fa fa-caret-left"></span></a>
     <a class="navbar-brand" href="#">Veterans</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -150,15 +144,15 @@
         </li>    
     </ul>
     </div>  
-</nav>
+</nav> --}}
 
         <br>
         {{#each veterans}}
     <div class="card">
         <div class="card-body d-flex flex-row">
             <div class="media-body">
-                <a href="johnDoe.html" class="btn mb-0 btn-lg">{{this.first_name}} <span>{{this.middle_initial}}</span> {{this.last_name}}
-                <p>GUARDIAN: <span>Junior Doe</span></p></a>
+                <a href = './homepage' class="btn mb-0 btn-lg">{{this.veteran_name}} </a>
+                <p>GUARDIAN: <span> {{this.guardian_name}} </span></p></a>
             </div>
             <div class="flex-row">
                 <i class="fa fa-bus bus"><p>1</p></i>
