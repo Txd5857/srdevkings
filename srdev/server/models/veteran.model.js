@@ -94,7 +94,7 @@ const pool = mysql.createPool({
 // get all teams
 Veteran.getAllVeterans = () =>{
     return new Promise( (resolve,reject) => {
-        mysqlConnection.query('SELECT * FROM veteran', (err, res)=>{
+        mysqlConnection.query(" SELECT Veteran.veteran_id, CONCAT(Guardian.first_name, ' ', Guardian.last_name) as guardian_name, CONCAT(Veteran.first_name, ' ', Veteran.last_name) as veteran_name FROM Veteran INNER JOIN Guardian ON Veteran.guardian_id=Guardian.guardian_id", (err, res)=>{
             if(err) {
                 return reject(err);
             } 
