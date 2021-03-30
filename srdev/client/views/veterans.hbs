@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <a href="../public/scripts/veteran.js"></a>
 <style> 
 
 /* BASIC */
@@ -29,7 +30,6 @@
         background-color: lightgrey;
         color: white;
     }
-
 
     .backButton {
         background-color: grey;
@@ -77,7 +77,7 @@
   
     .userBlu {
         color: #ffffff;
-        background-color: #0275d8;
+        background-color: #4c65e4;
         padding: 15px 15px;
         text-align: center;
         display: inline-block;
@@ -86,7 +86,15 @@
 
     .userRed {
         color: #ffffff;
-        background-color: #d9534f;
+        background-color: #d93030;
+        padding: 15px 15px;
+        text-align: center;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    .userYell {
+        background-color: #edd712;
         padding: 15px 15px;
         text-align: center;
         display: inline-block;
@@ -94,16 +102,42 @@
     }
 
     .userOra {
-        background-color: #f0ad4e;
+        background-color: #ff8329;
         padding: 15px 15px;
         text-align: center;
         display: inline-block;
         text-transform: uppercase;
     }
+
+    .userPur {
+        background-color: #a14ce4;
+        padding: 15px 15px;
+        text-align: center;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    .userGol {
+        background-color: #f1ae00;
+        padding: 15px 15px;
+        text-align: center;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    .userSil {
+        background-color: #9b9b9b;
+        padding: 15px 15px;
+        text-align: center;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+
     
     .medkitGre {
         color: #ffffff;
-        background-color: #5cb85c;
+        background-color: #10880e;
         padding: 15px 15px;
         text-align: center;
         display: inline-block;
@@ -111,7 +145,7 @@
     }
 
     .medkitYel {
-        background-color: yellow;
+        background-color: #edd712;
         padding: 15px 15px;
         text-align: center;
         display: inline-block;
@@ -123,7 +157,12 @@
 
 <body>
   <!-- <script src="js/scripts.js"></script> -->
-<h1 class="yur"> Veterans </h1>
+
+    <h1> Veterans </h1>
+    <form class="form-inline" style="float: right;">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-3" type="submit">Search</button>
+    </form>
 {{!-- {{> navigation }} --}}
 {{!-- <nav class="navbar navbar-expand-md bg-light navbar-light">
     <a href="content.html" class="fadeIn backButton" role="button" aria-disabled="true"><span class="fa fa-caret-left"></span></a>
@@ -147,8 +186,53 @@
 </nav> --}}
 
         <br>
-        {{#each veterans}}
-    <div class="card">
+        <table class="table">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">NAME</th>
+                    <th scope="col">GUARDIAN</th>
+                    <th scope="col">BUS</th>
+                    <th scope="col">TEAM</th>
+                    <th scope="col">MED</th>
+                </tr>
+            </thead>
+            {{#each veterans}}
+            <tbody>
+                <tr>
+                    <th scope="row"><a href = "./veterans/{{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}}</a></th>
+                    <td class='yur'>{{this.guardian_name}}</td>
+                    <td><i class="fa fa-bus bus"><p>{{this.bus_id}}</p></i></td>
+
+                    {{#if this.how_heard}}
+                        <td>{{this.how_heard}}</td>
+                    {{else}}
+                        <td>None</td>
+                    {{/if}}
+
+                    {{#if this.med_code}}
+                        <td>{{this.med_code}}</td>
+                    {{else}}
+                        <td>None</td>
+                    {{/if}}
+
+                    {{!-- {{#ifCond this.med_code '==' "RED")}}
+                        <td><i class="fa fa-user userRed"><p>{{this.med_code}}</p></i></td> --}}
+                    {{!-- {{#elseif this.med_code == "BLUE"}}
+                        <td><i class="fa fa-user userBlu"><p>{{this.med_code}}</p></i></td>
+                    {{#elseif this.med_code == "YELLOW"}}
+                        <td><i class="fa fa-user userYell"><p>{{this.med_code}}</p></i></td>
+                    {{#elseif this.med_code == "GREEN"}}
+                        <td><i class="fa fa-user userGre"><p>{{this.med_code}}</p></i></td>
+                    {{#elseif this.med_code == "ORANGE"}}
+                        <td><i class="fa fa-user userOra"><p>{{this.med_code}}</p></i></td> --}}
+                    {{!-- {{else}}
+                        <td>None</td> --}}
+                    {{!-- {{/ifCond}} --}}
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    {{!-- <div class="card">
         <div class="card-body d-flex flex-row">
             <div class="media-body">
                 <a href = "veterans/{{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}} </a>
@@ -160,52 +244,11 @@
                 <i class="fa fa-medkit medkitGre"><p>GRE</p></i>
             </div>
         </div>
-    </div>
+    </div> --}}
     <br>
-    {{/each}}
+
 
     <a href="/api/veterans">fds</a>
-    {{!-- <div class="card">
-        <div class="card-body d-flex flex-row">
-            <div class="media-body">
-                <a href="johnDoe.html" class="btn mb-0 btn-lg">John Doe <span>"J"</span>
-                <p>GUARDIAN: <span>Junior Doe</span></p></a>
-            </div>
-            <div class="flex-row">
-                <i class="fa fa-bus bus"><p>1</p></i>
-                <i class="fa fa-user userBlu"><p>BLU</p></i>
-                <i class="fa fa-medkit medkitGre"><p>GRE</p></i>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="card">
-        <div class="card-body d-flex flex-row">
-            <div class="media-body">
-                <a href="#" class="btn mb-0 btn-lg">Ivana Guddesign
-                <p>GUARDIAN: <span>Gina Guddesign</span></p></a>
-            </div>
-            <div class="flex-row">
-                <i class="fa fa-bus bus"><p>1</p></i>
-                <i class="fa fa-user userRed"><p>RED</p></i>
-                <i class="fa fa-medkit medkitYel"><p>YEL</p></i>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="card">
-        <div class="card-body d-flex flex-row">
-            <div class="media-body">
-                <a href="#" class="btn mb-0 btn-lg">Gerald Lastname
-                <p>GUARDIAN: <span>Jeffrey Smith</span></p></a>
-            </div>
-            <div class="flex-row">
-                <i class="fa fa-bus bus"><p>1</p></i>
-                <i class="fa fa-user userOra"><p>ORA</p></i>
-                <i class="fa fa-medkit medkitYel"><p>YEL</p></i>
-            </div>
-        </div>
-    </div> --}}
 </body>
 
 </html>
