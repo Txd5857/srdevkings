@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title> Veterans </title>
-    <link rel="stylesheet" href="/css/style.scss">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -151,12 +151,12 @@
     <div class="card">
         <div class="card-body d-flex flex-row">
             <div class="media-body">
-                <a href = './homepage' class="btn mb-0 btn-lg">{{this.veteran_name}} </a>
-                <p>GUARDIAN: <span> {{this.guardian_name}} </span></p></a>
+                <a href = "'./veterans/' + {{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}} </a>
+                <p class='yur'>GUARDIAN: <span> {{this.guardian_name}} </span></p></a>
             </div>
             <div class="flex-row">
                 <i class="fa fa-bus bus"><p>{{this.bus_id}}</p></i>
-                <i class="fa fa-user userBlu"><p>BLU</p></i>
+                <i class="fa fa-user userBlu"><p>{{this.med_code}}</p></i>
                 <i class="fa fa-medkit medkitGre"><p>GRE</p></i>
             </div>
         </div>

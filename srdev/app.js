@@ -17,10 +17,14 @@ const VeteranRoutes = require('./server/routes/veteran.route');
 //page routes 
 const pageRoute = require("./client/routes/pages"); 
 
-const publicDir = path.join(__dirname, '/client/public');
-app.use(express.static(publicDir));
+const publicDir = path.join(__dirname, 'client/public'); // Public Directory
+app.use(express.static(publicDir));                         // Serve files in public directory
 
+// app.use('/static', express.static(publicDir));
+// app.use(express.static("public"));
+// app.use(express.static("public"));
 
+// app.use('/static', express.static(path.join(__dirname, 'public')))
 
 // hbs.registerPartials(__dirname + '/client/views/partials', function (err) {});
 app.use(morgan('dev'));
