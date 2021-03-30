@@ -15,7 +15,6 @@ veteransRouter.get('', async(req,res)=>{
         //  console.log("faa",veteranAPI.data);
         //  veteran_list = veteranAPI.data;
          res.render('veterans', { veterans : veteranAPI.data});
-         console.log("teat",veterans);
     }catch (error) {
         if(error.response){
             console.log(error.response.data);
