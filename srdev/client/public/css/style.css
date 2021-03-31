@@ -47,9 +47,11 @@ transition: all 0.3s ease-in-out;
 color: black;
 }
 
+body {
+    background-color: lightgray;
+}
 
 .container {
-    background-color: lightgray;
     border-radius: 10px;
 }
 
