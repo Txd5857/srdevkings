@@ -11,5 +11,7 @@ router.get('/homepage', (req,res)=>{
     res.render('homepage');
 });
 
-
+router.get('/navigation',(req,res)=>{
+    res.render('navigation');
+});
 module.exports = router;

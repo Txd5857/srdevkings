@@ -22,7 +22,7 @@ exports.getVeteranByID = (req, res)=>{
         if(err)
         res.send(err);
         console.log('single veteran data',veteran[0]);
-        res.send(veteran);
+        res.send(veteran[0]);
     })
 }
 
