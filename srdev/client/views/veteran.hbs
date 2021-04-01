@@ -6,19 +6,211 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title> Veteran </title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <!-- <script src="js/scripts.js"></script> -->
   <h1 class="yur"> Veteran {{ veteran.first_name }}</h1>
+<<<<<<< HEAD
   <h1> General </h1>
   <h2> last name {{veteran.last_name}}</h2>
   
+=======
+>>>>>>> 3a2d677c3671efbc1c97176a37e67a8e86fef174
 
-  
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h2>John Doe <span>"J"</span></h2>
+          <h4>US Navy (Cold War-era, Vietnam)</h4> 
+            <ul class="list-group">
+              <li class="d-flex">
+                <i class="fa fa-medkit medkitGre"><span class="ml-2">Med Code: Green </span></i>
+                <i class="fa fa-user userBlu ml-3"><span class="ml-2">Team: Blue </span></i>
+              </li> 
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+        <ul class="list-group">
+          <li class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Comments</h5>
+            <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" 
+            data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <p>Alternate Contact Information: Jennifer</p>
+            <p>Cellphone</p>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <p>Specific Guardian: Jennifer</p>
+            <p>(D): Cellphone</p>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <h5 class="card-title list-group-item list-group-item-danger">Medical Information</h5>
+        <div class="card-body ml-3">
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Uses</h5>
+            <p>Can do stairs</p>
+          </li>
+          <li class="d-flex w-100 justify-content-between">
+            <h5>HX</h5>
+            <p>None</p>
+          </li>  
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Uses</h5>
+            <p>Inforation</p>
+          </li>  
+          <li class="d-flex w-100 justify-content-between">
+            <h5>HX</h5>
+            <p>None Reported</p>
+          </li>  
+          <p>Inform emergency respondsers of</p> 
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <li class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title">General</h5>
+          </li>
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Age</h5>
+            <p>77</p>
+          </li>
+          <li class="d-flex w-100 justify-content-between">
+            <h5>DOB</h5>
+            <p>--/--/--</p>
+          </li>  
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Guardian</h5>
+            <p>Family</p>
+          </li>  
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Wheelchair</h5>
+            <p>Back-up</p>
+          </li>  
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Needs</h5>
+            <p>Oxygen</p>
+          </li> 
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Service</h5>
+            <p>US Navy</p>
+          </li>   
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <li class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title">Hotel Room</h5>
+            <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" 
+              data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+          </li>
+          <div class="card-body ml-3">
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Vetern</h5>
+              <p>2-63</p>
+            </li>
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Guardian</h5>
+              <p>2-64</p>
+            </li>   
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Guardian</h5>
+          <div class="card-body ml-3">
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Name</h5>
+              <p>Junior Doe</p>
+            </li>
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Relationship</h5>
+              <p></p>
+            </li> 
+            <li class="d-flex w-100 justify-content-between">
+              <h5>DOE</h5>
+              <p></p>
+            </li> 
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Phone</h5>
+              <p>123-123-1234</p>
+            </li>
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Address</h5>
+              <p>123 ST</p>
+            </li>
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Email</h5>
+              <p>aaa@gmail.com</p>
+            </li>
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Med Exp</h5>
+              <p>None</p>
+            </li>
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Diet Restriction</h5>
+              <p>None</p>
+            </li>       
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row" style="margin-top: -15%;">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Contact</h5>
+          <div class="card-body ml-3">
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Phone</h5>
+              <p>2-63</p>
+            </li>
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Alt Phone</h5>
+              <p>123-121-1212</p>
+            </li> 
+            <li class="d-flex w-100 justify-content-between">
+              <h5>Address</h5>
+              <p>123 ST</p>
+            </li>   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
   {{!-- <script src="/scripts/veteran.js"></script> --}}
-
 </body>
-
 </html>
