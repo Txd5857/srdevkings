@@ -40,6 +40,8 @@ app.set('views', path.join(__dirname, '/client/views'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+// const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
+// hbs.registerPartial('navv', 'navigation')
 
 let apiroutes = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes];
 // API Routes 
