@@ -55,6 +55,10 @@ body {
     border-radius: 10px;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .flex-row {
 padding-top: 1.5%;
 }
