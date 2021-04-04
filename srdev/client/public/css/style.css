@@ -75,6 +75,10 @@ display: inline-block;
 text-transform: uppercase;
 }
 
+div.contentColumn {
+    background-color: #EFEFEF;
+}
+
 .userBlu {
 color: #ffffff;
 background-color: #4c65e4;
