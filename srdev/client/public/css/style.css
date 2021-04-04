@@ -87,6 +87,9 @@ text-transform: uppercase;
 
 div.contentColumn {
     background-color: #EFEFEF;
+    border: none;
+    margin: 2px;
+    top: 25%;
 }
 
 .userBlu {
