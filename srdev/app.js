@@ -28,18 +28,44 @@ app.use(express.static(publicDir));                         // Serve files in pu
 
 // hbs.registerPartials(__dirname + '/client/views/partials', function (err) {});
 app.use(morgan('dev'));
-app.set('view engine', 'hbs');                              // Set view engine: Handlebars
+app.set('view engine', 'hbs');     
+var fs = require('fs');
+
+var partialsDir = __dirname + '/client/views/partials';
+
+var filenames = fs.readdirSync(partialsDir);
+
+filenames.forEach(function (filename) {
+  var matches = /^([^.]+).hbs$/.exec(filename);
+  if (!matches) {
+    return;
+  }
+  var name = matches[1];
+  var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
+  hbs.registerPartial(name, template);
+});
+// hbs.registerPartials(__dirname,'/client/views/partials');
+// app.engine('hbs', exphbs({
+//     extname: 'hbs', 
+//     layoutsDir: path.join(__dirname, 'client/views/layouts'),
+//     partialsDir  : [
+//         //  path to your partials
+//         path.join(__dirname, 'client/views/partials'),
+//     ]
+// }));                         // Set view engine: Handlebars
 // app.engine('hbs',exphbs({
 //     extname: 'hbs',
 //     defaultLayout: 'app',
 //     // layoutsDir: __dirname + '/client/views/layouts',
 //     partialsDir: __dirname + '/client/views/partials'
 // }))
-app.set('views', path.join(__dirname, '/client/views')); 
+app.set('views', path.join(__dirname, 'client/views')); 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+// const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
+// hbs.registerPartial('navv', 'navigation')
 
 let apiroutes = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes];
 // API Routes 

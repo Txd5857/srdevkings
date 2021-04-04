@@ -3,7 +3,17 @@
 }
 
 /* BASIC */
+.bus-nav {
+    background-color: #4C65E4;
+}
 
+.bus-nav ul li a {
+    color: white;
+}
+
+.bus-nav ul {
+    float: right;
+}
 .nav-item {
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
