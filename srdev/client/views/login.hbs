@@ -112,9 +112,11 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -ms-transform: scale(0.95);
   transform: scale(0.95);
 }
-
+ #password, #username, #login_submit {
+     width: 50%;
+ }
 input[type=text] {
-  background-color: #f6f6f6;
+  background-color: #E5E5E5;
   border: none;
   color: #0d0d0d;
   padding: 15px 32px;
@@ -267,6 +269,8 @@ h1 {
 
     <!-- Icon -->
     <div class="fadeIn first">
+        <img src="img/honor_flight.png" alt="Girl in a jacket">
+
       <div>
         <h2>Honor Flight</h2>
         <h1 style="font-size:50px"><b> BUS BOOK</b></h1>
@@ -276,9 +280,15 @@ h1 {
 
     <!-- Login Form -->
     <form method="POST" action="/auth/login">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+    <div style="padding: 10px;">      
+        <input style="border-radius: 25px;" type="text" id="username" class="fadeIn second" name="login" placeholder="username">
+    </div>
+    <div style="padding: 10px;">
+         <input style="border-radius: 25px;" type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+    </div>   
+    <div>
+        <input type="submit" id="login_submit"  class="fadeIn fourth" value="Log In">
+    </div>         
     </form>
 
   
