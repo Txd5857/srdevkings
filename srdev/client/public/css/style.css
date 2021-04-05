@@ -92,7 +92,7 @@ div.contentColumn {
     top: 25%;
 }
 
-.userBlu {
+.teamBlue {
 color: #ffffff;
 background-color: #4c65e4;
 padding: 15px 15px;
@@ -101,7 +101,7 @@ display: inline-block;
 text-transform: uppercase;
 }
 
-.userRed {
+.teamRed {
 color: #ffffff;
 background-color: #d93030;
 padding: 15px 15px;
@@ -110,7 +110,7 @@ display: inline-block;
 text-transform: uppercase;
 }
 
-.userYell {
+.teamYell {
 background-color: #edd712;
 padding: 15px 15px;
 text-align: center;
@@ -118,7 +118,7 @@ display: inline-block;
 text-transform: uppercase;
 }
 
-.userOra {
+.teamOra {
 background-color: #ff8329;
 padding: 15px 15px;
 text-align: center;
@@ -126,7 +126,7 @@ display: inline-block;
 text-transform: uppercase;
 }
 
-.userPur {
+.teamPurple {
 background-color: #a14ce4;
 padding: 15px 15px;
 text-align: center;
@@ -134,7 +134,7 @@ display: inline-block;
 text-transform: uppercase;
 }
 
-.userGol {
+.teamGold {
 background-color: #f1ae00;
 padding: 15px 15px;
 text-align: center;
@@ -142,7 +142,7 @@ display: inline-block;
 text-transform: uppercase;
 }
 
-.userSil {
+.teamSilver {
 background-color: #9b9b9b;
 padding: 15px 15px;
 text-align: center;
@@ -152,7 +152,7 @@ text-transform: uppercase;
 
 
 
-.medkitGre {
+.medkitGreen {
 color: #ffffff;
 background-color: #10880e;
 padding: 15px 15px;
@@ -161,8 +161,18 @@ display: inline-block;
 text-transform: uppercase;
 }
 
-.medkitYel {
+.medkitYellow {
+color: #ffffff;
 background-color: #edd712;
+padding: 15px 15px;
+text-align: center;
+display: inline-block;
+text-transform: uppercase;
+}
+
+.medkitRed {
+color: #ffffff;
+background-color: #ed1212;
 padding: 15px 15px;
 text-align: center;
 display: inline-block;
