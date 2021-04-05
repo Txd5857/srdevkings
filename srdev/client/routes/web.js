@@ -1,8 +1,3 @@
-// import express from "express";
-// import homePageController from "../controllers/homePageController";
-// import registerController from "../controllers/registerController";
-// import loginController from "../controllers/loginController";
-// import auth from "../validation/authValidation";
 
 const express = require('express');
 const loginController = require('../controllers/loginController');
@@ -27,10 +22,9 @@ let initWebRoutes = (app) => {
         failureFlash: true
     }));
 
-    
-    // router.get("/veterans",VeteranPageRoutes);
-    // router.get("/register", registerController.getPageRegister);
-    // router.post("/register", auth.validateRegister, registerController.createNewUser);
+    router.get('/register',  (req,res) =>{
+        res.render('register');
+    });
     router.post("/logout", loginController.postLogOut);
     router.get('/homepage', (req,res) =>{
         res.render('homepage');
