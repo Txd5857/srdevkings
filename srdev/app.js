@@ -4,7 +4,12 @@ const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const path = require("path");
 const hbs = require('hbs');
-const exphbs = require('express-handlebars');
+const fs = require('fs');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const connectFlash =require("connect-flash");
 
 
 //api routes
@@ -13,66 +18,75 @@ const BusRoutes = require('./server/routes/bus.route');
 const GuardianRoutes = require('./server/routes/guardian.route');
 const MissionRoutes = require('./server/routes/mission.route');
 const VeteranRoutes = require('./server/routes/veteran.route');
-
+const initWebRoutes = require('./client/routes/web')
 //page routes 
 const pageRoute = require("./client/routes/pages"); 
+const apiRoute = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes];
+const authRoute = require('./client/routes/auth');
 
 const publicDir = path.join(__dirname, 'client/public'); // Public Directory
 app.use(express.static(publicDir));                         // Serve files in public directory
 
 // app.use('/static', express.static(publicDir));
 // app.use(express.static("public"));
-// app.use(express.static("public"));
 
-// app.use('/static', express.static(path.join(__dirname, 'public')))
+//use cookie parser
+app.use(cookieParser('secret'));
 
-// hbs.registerPartials(__dirname + '/client/views/partials', function (err) {});
+//config session
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 // 86400000 1 day
+    }
+}));
+
+
+// Enable body parser post data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//Enable flash message
+app.use(connectFlash());
+
+//Config passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// init all web routes
+initWebRoutes(app);
+
 app.use(morgan('dev'));
+
 app.set('view engine', 'hbs');     
-var fs = require('fs');
 
-var partialsDir = __dirname + '/client/views/partials';
-
-var filenames = fs.readdirSync(partialsDir);
-
+const partialsDir = __dirname + '/client/views/partials';
+const filenames = fs.readdirSync(partialsDir);
 filenames.forEach(function (filename) {
-  var matches = /^([^.]+).hbs$/.exec(filename);
+  const matches = /^([^.]+).hbs$/.exec(filename);
   if (!matches) {
     return;
   }
-  var name = matches[1];
-  var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
+  const name = matches[1];
+  const template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
   hbs.registerPartial(name, template);
 });
-// hbs.registerPartials(__dirname,'/client/views/partials');
-// app.engine('hbs', exphbs({
-//     extname: 'hbs', 
-//     layoutsDir: path.join(__dirname, 'client/views/layouts'),
-//     partialsDir  : [
-//         //  path to your partials
-//         path.join(__dirname, 'client/views/partials'),
-//     ]
-// }));                         // Set view engine: Handlebars
-// app.engine('hbs',exphbs({
-//     extname: 'hbs',
-//     defaultLayout: 'app',
-//     // layoutsDir: __dirname + '/client/views/layouts',
-//     partialsDir: __dirname + '/client/views/partials'
-// }))
+
 app.set('views', path.join(__dirname, 'client/views')); 
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 
-// const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
-// hbs.registerPartial('navv', 'navigation')
+// Pages
+// app.use('/', pageRoute);
+// initWebRoutes(app);
 
-let apiroutes = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes];
-// API Routes 
-app.use('/', pageRoute);
-
-app.use('/api',apiroutes);
-
+// API
+app.use('/api',apiRoute);
+// AUTH
+// app.use('/auth', authRoute)
 
 app.use((req,res,next) => {
     res.header('Access-Control-Allow-Origin','*');
@@ -84,14 +98,6 @@ app.use((req,res,next) => {
     }
     next();
 });
-
-
-
-// app.use((req,res,next) => {
-//     const error = new Error("Not Found");
-//     error.status = 404;
-//     next(error);
-// });
 
 app.use((error,req,res,next) => {
     res.status(error.status || 500);
