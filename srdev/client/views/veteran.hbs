@@ -15,25 +15,22 @@
 
 <body>
   <!-- <script src="js/scripts.js"></script> -->
-  <h1 class="yur"> Veteran {{ veteran.first_name }}</h1>
-<<<<<<< HEAD
-  <h1> General </h1>
-  <h2> last name {{veteran.last_name}}</h2>
-  
-=======
->>>>>>> 3a2d677c3671efbc1c97176a37e67a8e86fef174
-
+  {{> navigation}}
   <div class="container">
     <div class="row">
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h2>John Doe <span>"J"</span></h2>
-          <h4>US Navy (Cold War-era, Vietnam)</h4> 
+          <h2>{{ veteran.first_name }} {{ veteran.last_name }}
+            {{#if veteran.nickname}}
+              <span>"{{ veteran.nickname }}"</span>
+            {{/if}}
+          </h2>
+          <h4>{{ veteran.service_branch }} ({{ veteran.service_years }})</h4> 
             <ul class="list-group">
               <li class="d-flex">
-                <i class="fa fa-medkit medkitGre"><span class="ml-2">Med Code: Green </span></i>
-                <i class="fa fa-user userBlu ml-3"><span class="ml-2">Team: Blue </span></i>
+                <i class="fa fa-medkit medkit{{ veteran.med_code }}"><span class="ml-2">Med Code: {{ veteran.med_code }} </span></i>
+                <i class="fa fa-user team{{ veteran.team_color }} ml-3"><span class="ml-2">Team: {{ veteran.team_color }} </span></i>
               </li> 
             </ul>
         </div>
@@ -48,13 +45,13 @@
             <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" 
             data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
           </li>
+          <p>{{ veteran.add_comments }}</p>
           <li class="d-flex justify-content-between align-items-center">
-            <p>Alternate Contact Information: Jennifer</p>
-            <p>Cellphone</p>
+            <p>Alternate Contact Information: {{#if veteran.alt_name}} {{veteran.alt_name}} {{else if veteran.emergency_name }} {{veteran.emergency_name}} {{else}} None {{/if}}</p>
+            <p>{{#if veteran.alt_phone}} {{veteran.alt_phone}} {{else if veteran.emergency_cell_phone }} (Cell) {{veteran.emergency_cell_phone}} {{else if veteran.emergency_day_phone }} (Day) {{veteran.emergency_day_phone}} {{else}} Contact Info Not Found {{/if}}</p>
           </li>
           <li class="d-flex justify-content-between align-items-center">
-            <p>Specific Guardian: Jennifer</p>
-            <p>(D): Cellphone</p>
+            <p>Specific Guardian: {{#if veteran.add_specific_guardian}} {{veteran.add_specific_guardian}} {{else}} None {{/if}}</p>
           </li>
         </ul>
         </div>
@@ -69,21 +66,21 @@
         <div class="card-body ml-3">
           <li class="d-flex w-100 justify-content-between">
             <h5>Uses</h5>
-            <p>Can do stairs</p>
+            <p>[FILL THIS IN]</p>
           </li>
           <li class="d-flex w-100 justify-content-between">
             <h5>HX</h5>
-            <p>None</p>
+            <p>[FILL THIS IN]</p>
           </li>  
           <li class="d-flex w-100 justify-content-between">
             <h5>Uses</h5>
-            <p>Inforation</p>
+            <p>[FILL THIS IN]</p>
           </li>  
           <li class="d-flex w-100 justify-content-between">
             <h5>HX</h5>
-            <p>None Reported</p>
+            <p>[FILL THIS IN]</p>
           </li>  
-          <p>Inform emergency respondsers of</p> 
+          <p>Inform emergency respondsers of [FILL THIS IN]</p> 
         </div>
       </div>
     </div>
@@ -95,27 +92,44 @@
           </li>
           <li class="d-flex w-100 justify-content-between">
             <h5>Age</h5>
-            <p>77</p>
+            <p>{{ veteran.age }}</p>
           </li>
           <li class="d-flex w-100 justify-content-between">
             <h5>DOB</h5>
-            <p>--/--/--</p>
+            <p>{{ veteran.dob_month }}/{{ veteran.dob_day }}/{{ veteran.dob_year }}</p>
           </li>  
           <li class="d-flex w-100 justify-content-between">
             <h5>Guardian</h5>
-            <p>Family</p>
+            <p>{{ veteran.guardian_first_name }} {{ veteran.guardian_last_name }}</p>
           </li>  
           <li class="d-flex w-100 justify-content-between">
             <h5>Wheelchair</h5>
+            {{#if veteran.med_wheelchair}}
+            <p>Needs a Wheelchair</p>
+            {{else}}
             <p>Back-up</p>
+            {{/if}}
           </li>  
           <li class="d-flex w-100 justify-content-between">
-            <h5>Needs</h5>
-            <p>Oxygen</p>
+            <h5>Needs</h5></br>
           </li> 
+            <p>
+              Cane: {{#if veteran.med_cane}} Yes. {{else}} No.{{/if}}
+              Walker: {{#if veteran.med_walker}} Yes. {{else}} No.{{/if}}
+              Chair Location: {{#if veteran.med_chair_loc}} {{veteran.med_chair_loc}}. {{else}} None.{{/if}}</br>
+              Scooter: {{#if veteran.med_scooter}} Yes. {{else}} No.{{/if}}
+              Empysema: {{#if veteran.med_emphysema}} Yes. {{else}} No.{{/if}}
+              Falls: {{#if veteran.med_falls}} Yes. {{else}} No.{{/if}}
+              Heart Disease: {{#if veteran.med_heart_disease}} Yes. {{else}} No.{{/if}}
+              Pacemaker: {{#if veteran.med_pacemaker}} Yes. {{else}} No.{{/if}} Joint Replacement: {{#if veteran.med_joint_replacement}} Yes. {{else}} No.{{/if}} Kidney: {{#if veteran.med_kidney}} Yes. {{else}} No.{{/if}}</ br>
+              Diabetes: {{#if veteran.Diabetes}} Yes. {{else}} No.{{/if}} Seizures: {{#if veteran.med_seizures}} Yes. {{else}} No.{{/if}} urostomy: {{#if veteran.med_urostomy}} Yes. {{else}} No.{{/if}} Dementia: {{#if veteran.med_dimentia}} Yes. {{else}} No.{{/if}}
+              Nebulizer: {{#if veteran.med_nebulizer}} Yes. {{else}} No.{{/if}} Oxygen: {{#if veteran.med_oxygen}} Yes. {{else}} No.{{/if}} Football Field: {{#if veteran.med_football}} Yes. {{else}} No.{{/if}}
+              Walk Bus Steps: {{#if veteran.med_walk_bus_steps}} Yes. {{else}} No.{{/if}} Stroke: {{#if veteran.med_stroke}} Yes. {{else}} No.{{/if}} Urinary: {{#if veteran.med_urinary}} Yes. {{else}} No.{{/if}}
+              CPAP: {{#if veteran.med_cpap}} Yes. {{else}} No.{{/if}}
+            </p>
           <li class="d-flex w-100 justify-content-between">
             <h5>Service</h5>
-            <p>US Navy</p>
+            <p>{{ veteran.service_branch }}</p>
           </li>   
         </div>
       </div>
@@ -133,12 +147,12 @@
           </li>
           <div class="card-body ml-3">
             <li class="d-flex w-100 justify-content-between">
-              <h5>Vetern</h5>
-              <p>2-63</p>
+              <h5>Veteran</h5>
+              <p>[BUILD THIS]</p>
             </li>
             <li class="d-flex w-100 justify-content-between">
               <h5>Guardian</h5>
-              <p>2-64</p>
+              <p>[BUILD THIS]</p>
             </li>   
           </div>
         </div>
@@ -151,35 +165,53 @@
           <div class="card-body ml-3">
             <li class="d-flex w-100 justify-content-between">
               <h5>Name</h5>
-              <p>Junior Doe</p>
+              <p>{{ veteran.guardian_first_name }} {{ veteran.guardian_last_name }}</p>
             </li>
             <li class="d-flex w-100 justify-content-between">
               <h5>Relationship</h5>
-              <p></p>
+              <p>{{ veteran.guardian_relation }}</p>
             </li> 
             <li class="d-flex w-100 justify-content-between">
-              <h5>DOE</h5>
-              <p></p>
+              <h5>DOB</h5>
+              <p>{{ veteran.guardian_dob_month }}/{{ veteran.guardian_dob_day }}/{{ veteran.guardian_dob_year }}</p>
             </li> 
             <li class="d-flex w-100 justify-content-between">
               <h5>Phone</h5>
-              <p>123-123-1234</p>
+              {{#if veteran.guardian_cell_phone }}
+              <p>(Cell) {{ veteran.guardian_cell_phone }}</p>
+              {{else if veteran.guardian_day_phone }}
+              <p>(Day) {{ veteran.guardian_day_phone }}</p>
+              {{else}}
+              <p>Not Found</p>
+              {{/if}}
             </li>
             <li class="d-flex w-100 justify-content-between">
               <h5>Address</h5>
-              <p>123 ST</p>
+              <p>{{ veteran.guardian_address }} {{ veteran.guardian_city }}, {{ veteran.guardian_state }} {{ veteran.guardian_zip }}</p>
             </li>
             <li class="d-flex w-100 justify-content-between">
               <h5>Email</h5>
-              <p>aaa@gmail.com</p>
+              {{#if veteran.guardian_email }}
+              <p>{{ veteran.guardian_email }}</p>
+              {{else}}
+              <p>Not Found</p>
+              {{/if}}
             </li>
             <li class="d-flex w-100 justify-content-between">
               <h5>Med Exp</h5>
+              {{#if veteran.guardian_med_training }}
+              <p>{{ veteran.guardian_med_training }}</p>
+              {{else}}
               <p>None</p>
+              {{/if}}
             </li>
             <li class="d-flex w-100 justify-content-between">
               <h5>Diet Restriction</h5>
+              {{#if veteran.guardian_diet_restrictions }}
+              <p>{{ veteran.guardian_diet_restrictions }}</p>
+              {{else}}
               <p>None</p>
+              {{/if}}
             </li>       
           </div>
         </div>
@@ -195,15 +227,23 @@
           <div class="card-body ml-3">
             <li class="d-flex w-100 justify-content-between">
               <h5>Phone</h5>
-              <p>2-63</p>
+              {{#if veteran.cell_phone }}
+              <p>{{ veteran.cell_phone }}</p>
+              {{else}}
+              <p>Not Found</p>
+              {{/if}}
             </li>
             <li class="d-flex w-100 justify-content-between">
               <h5>Alt Phone</h5>
-              <p>123-121-1212</p>
+              {{#if veteran.day_phone }}
+              <p>{{ veteran.day_phone }}</p>
+              {{else}}
+              <p>Not Found</p>
+              {{/if}}
             </li> 
             <li class="d-flex w-100 justify-content-between">
               <h5>Address</h5>
-              <p>123 ST</p>
+              <p>{{ veteran.address }} {{ veteran.city }}, {{ veteran.state }} {{ veteran.zip }}</p>
             </li>   
           </div>
         </div>
