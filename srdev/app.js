@@ -86,7 +86,7 @@ app.set('views', path.join(__dirname, 'client/views'));
 // API
 app.use('/api',apiRoute);
 // AUTH
-// app.use('/auth', authRoute)
+app.use('/auth', authRoute)
 
 app.use((req,res,next) => {
     res.header('Access-Control-Allow-Origin','*');
