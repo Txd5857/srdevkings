@@ -4,16 +4,16 @@ const bcrypt = require('bcryptjs');
 
 exports.login = async (req,res)=>{
     try{
-        const { email, password } = req.body;
+        const { username, password } = req.body;
         
-        if( !email || !password ){
+        if( !username || !password ){
             return res.status(400).render('create', {
                 message: 'Please provide an username and a password'
             });
         }
 
 
-        mysqlConnection.query('SELECT * FROM user WHERE email=?', [email], async (error, results)=>{
+        mysqlConnection.query('SELECT * FROM user WHERE username=?', [username], async (error, results)=>{
             if(!results || results == "" || !(await bcrypt.compare(password, results[0].password)) ){
                 res.status(401).render('create', {
                     message: 'Email or password is incorrect.'
@@ -50,40 +50,42 @@ exports.login = async (req,res)=>{
 }
 
 exports.register = (req,res)=>{
-    const { name, email, address, zip, password, confirmpassword } = req.body;
+    const { username, password } = req.body;
 
-    mysqlConnection.query('SELECT email FROM user WHERE email=?', [email], async (error, results)=>{
-        if( error ){
-            console.log(error);
-        }
+    mysqlConnection.query('SELECT username FROM user WHERE username=?', [username], async (error, results)=>{
 
-        if( results.length > 0 ){
-            return res.render('signup', {
-                message: 'Account creation: Failure. That email is taken.'
-            });
-        } else if( password !== confirmpassword){
-            return res.render('signup', {
-                message: 'Account creation: Failure. Passwords do not match.'
-            });
-        }else if( !name || !email || !address || !zip || !password || !confirmpassword || name == "" || email == "" || address == "" || zip == "" || password == "" || confirmpassword == ""){
-            return res.render('signup',{
-                message: 'Account creation: Failure. One or more fields are blank.'
-            });
-        }
-
-        let hashedPassword = await bcrypt.hash(password, 8);
-        mysqlConnection.query('INSERT INTO user SET ?', {password: hashedPassword, token: 'heyhey', full_name: name, email: email, zipcode: zip, role: 0, approved: 0, address: address}, (error, results)=>{
+        let hashedPassword = await bcrypt.hash(password, 10);
+        console.log(hashedPassword);
+        mysqlConnection.query('INSERT INTO user SET ?', {username: username, password: hashedPassword}, (error, results)=>{
             if(error){
                 console.log(error);
-                return res.render('signup', {
+                return res.render('register', {
                     message: 'One or more fields were filled out incorrectly. Please try again.'
                 });
             }else{
                 console.log(results);
-                return res.render('signup',{
+                return res.render('login',{
                     message: 'Account creation: Success. Please log in.'
                 });
             }
         })
     });
 }
+
+ // if( error ){
+        //     console.log(error);
+        // }
+
+        // if( results.length > 0 ){
+        //     return res.render('signup', {
+        //         message: 'Account creation: Failure. That email is taken.'
+        //     });
+        // } else if( password !== confirmpassword){
+        //     return res.render('signup', {
+        //         message: 'Account creation: Failure. Passwords do not match.'
+        //     });
+        // }else if( !name || !email || !address || !zip || !password || !confirmpassword || name == "" || email == "" || address == "" || zip == "" || password == "" || confirmpassword == ""){
+        //     return res.render('signup',{
+        //         message: 'Account creation: Failure. One or more fields are blank.'
+        //     });
+        // }
