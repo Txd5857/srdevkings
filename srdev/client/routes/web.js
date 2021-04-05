@@ -7,8 +7,7 @@
 const express = require('express');
 const loginController = require('../controllers/loginController');
 const homePageController = require('../controllers/homePageController');
-const VeteranPageRoutes = require('./veterans');
-
+const veteransController = require('../controllers/veteransController');
 const passport = require('passport');
 const initPassportLocal = require("../controllers/passportLocalController");
 // Init all passport
@@ -19,7 +18,7 @@ let router = express.Router();
 let initWebRoutes = (app) => {
     router.get('/', loginController.checkLoggedIn,homePageController.handleHelloWorld)
     router.get("/homepage", loginController.checkLoggedIn, homePageController.handleHelloWorld);
-    router.get("/veterans",loginController.checkLoggedIn,VeteranPageRoutes);
+    router.get("/veterans",loginController.checkLoggedIn,veteransController.handleHelloWorld);
     router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
         successRedirect: "/homepage",
@@ -29,11 +28,10 @@ let initWebRoutes = (app) => {
     }));
 
     
-
+    // router.get("/veterans",VeteranPageRoutes);
     // router.get("/register", registerController.getPageRegister);
     // router.post("/register", auth.validateRegister, registerController.createNewUser);
     router.post("/logout", loginController.postLogOut);
-    router.use('/veterans', VeteranPageRoutes);
     router.get('/homepage', (req,res) =>{
         res.render('homepage');
     });
