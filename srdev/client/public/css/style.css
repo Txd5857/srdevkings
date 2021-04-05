@@ -25,33 +25,33 @@
 }
 
 .nav-item:hover {
-background-color: lightgrey;
-color: white;
+    background-color: lightgrey;
+    color: white;
 }
 
 .backButton {
-background-color: grey;
-border: none;
-color: white;
-padding: 3px 10px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-text-transform: uppercase;
-font-size: 20px;
-margin-right: 5%;
-/* This is only Web version */
-/* margin-right: 40%; */
--webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
--webkit-border-radius: 5px 5px 5px 5px;
-border-radius: 5px 5px 5px 5px;
--webkit-transition: all 0.3s ease-in-out;
--moz-transition: all 0.3s ease-in-out;
--ms-transition: all 0.3s ease-in-out;
--o-transition: all 0.3s ease-in-out;
-transition: all 0.3s ease-in-out;
-}
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-right: 5%;
+    /* This is only Web version */
+    /* margin-right: 40%; */
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    }
 
 .backButton:hover {
 color: black;
@@ -70,19 +70,19 @@ body {
 }
 
 .flex-row {
-padding-top: 1.5%;
+    padding-top: 1.5%;
 }
 
 .btn-lg {
-text-align: left;
-color: black;
+    text-align: left;
+    color: black;
 }
 
 .bus {
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
 div.contentColumn {
@@ -92,82 +92,83 @@ div.contentColumn {
     top: 25%;
 }
 
-.teamBlue {
-color: #ffffff;
-background-color: #4c65e4;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+/* User Color Buttons */
+
+.userBlu {
+    color: #ffffff;
+    background-color: #4c65e4;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.teamRed {
-color: #ffffff;
-background-color: #d93030;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.userRed {
+    color: #ffffff;
+    background-color: #d93030;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.teamYell {
-background-color: #edd712;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.userYell {
+    background-color: #edd712;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.teamOra {
-background-color: #ff8329;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.userOra {
+    background-color: #ff8329;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.teamPurple {
-background-color: #a14ce4;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.userPur {
+    background-color: #a14ce4;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.teamGold {
-background-color: #f1ae00;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.userGol {
+    background-color: #f1ae00;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.teamSilver {
-background-color: #9b9b9b;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.userSil {
+    background-color: #9b9b9b;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
+/* Medical Code Color */
 
-
-.medkitGreen {
-color: #ffffff;
-background-color: #10880e;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.medkitGre {
+    color: #ffffff;
+    background-color: #10880e;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.medkitYellow {
-color: #ffffff;
-background-color: #edd712;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+.medkitYel {
+    background-color: #edd712;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
 .medkitRed {
