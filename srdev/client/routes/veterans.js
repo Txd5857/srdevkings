@@ -15,6 +15,7 @@ veteransRouter.get('', async(req,res)=>{
         //  console.log("faa",veteranAPI.data);
         //  veteran_list = veteranAPI.data;
          res.render('veterans', { veterans : veteranAPI.data});
+         console.log("teat",veterans);
     }catch (error) {
         if(error.response){
             console.log(error.response.data);
@@ -30,7 +31,7 @@ veteransRouter.get('/:id', async(req,res)=>{
     const api_url = "http://localhost:5002/api/veterans/"+veteran_id;
     try {
          const veteranAPI = await axios.get(api_url);
-        //  console.log("faa",veteranAPI.data);
+         console.log("faa",veteranAPI.data);
         //  veteran_list = veteranAPI.data;
          res.render('veteran', { veteran_id : veteran_id, veteran : veteranAPI.data});
          console.log("completed",veteran);
