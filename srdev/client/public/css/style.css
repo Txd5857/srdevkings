@@ -87,7 +87,7 @@ div.contentColumn {
 
 /* User Color Buttons */
 
-.userBlu {
+.teamBlue {
     color: #ffffff;
     background-color: #4c65e4;
     padding: 15px 15px;
@@ -96,7 +96,7 @@ div.contentColumn {
     text-transform: uppercase;
 }
 
-.userRed {
+.teamRed {
     color: #ffffff;
     background-color: #d93030;
     padding: 15px 15px;
@@ -105,7 +105,7 @@ div.contentColumn {
     text-transform: uppercase;
 }
 
-.userYell {
+.teamYell {
     background-color: #edd712;
     padding: 15px 15px;
     text-align: center;
@@ -113,7 +113,7 @@ div.contentColumn {
     text-transform: uppercase;
 }
 
-.userOra {
+.teamOra {
     background-color: #ff8329;
     padding: 15px 15px;
     text-align: center;
@@ -121,7 +121,7 @@ div.contentColumn {
     text-transform: uppercase;
 }
 
-.userPur {
+.teamPurple {
     background-color: #a14ce4;
     padding: 15px 15px;
     text-align: center;
@@ -129,7 +129,7 @@ div.contentColumn {
     text-transform: uppercase;
 }
 
-.userGol {
+.teamGold {
     background-color: #f1ae00;
     padding: 15px 15px;
     text-align: center;
@@ -137,7 +137,7 @@ div.contentColumn {
     text-transform: uppercase;
 }
 
-.userSil {
+.teamSilver {
     background-color: #9b9b9b;
     padding: 15px 15px;
     text-align: center;
@@ -147,7 +147,7 @@ div.contentColumn {
 
 /* Medical Code Color */
 
-.medkitGre {
+.medkitGreen {
     color: #ffffff;
     background-color: #10880e;
     padding: 15px 15px;
@@ -156,7 +156,7 @@ div.contentColumn {
     text-transform: uppercase;
 }
 
-.medkitYel {
+.medkitYellow {
     background-color: #edd712;
     padding: 15px 15px;
     text-align: center;
