@@ -13,7 +13,7 @@ router.get('/register', (req,res) => {
 });
 
 
-router.use('/veterans', VeteranPageRoutes);
+// router.use('/veterans', VeteranPageRoutes);
 
 
 
