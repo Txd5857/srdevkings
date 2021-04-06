@@ -3,6 +3,7 @@ const express = require('express');
 const loginController = require('../controllers/loginController');
 const homePageController = require('../controllers/homePageController');
 const veteransController = require('../controllers/veteransController');
+const adminController = require('../controllers/adminController');
 const passport = require('passport');
 const initPassportLocal = require("../controllers/passportLocalController");
 // Init all passport
@@ -14,6 +15,8 @@ let initWebRoutes = (app) => {
     router.get('/', loginController.checkLoggedIn,homePageController.handleHelloWorld)
     router.get("/homepage", loginController.checkLoggedIn, homePageController.handleHelloWorld);
     router.get("/veterans",loginController.checkLoggedIn,veteransController.handleHelloWorld);
+    router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.checkVeteran, veteransController.handleByeWorld);
+    router.get("/admin",loginController.checkLoggedIn, adminController.handleHelloWorld);
     router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
         successRedirect: "/homepage",
