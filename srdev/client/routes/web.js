@@ -17,6 +17,7 @@ let initWebRoutes = (app) => {
     router.get("/veterans",loginController.checkLoggedIn,veteransController.handleHelloWorld);
     router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.checkVeteran, veteransController.handleByeWorld);
     router.get("/admin",loginController.checkLoggedIn, adminController.handleHelloWorld);
+    router.get("/admins",loginController.checkLoggedIn, adminController.handleHelloWorld);
     router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
         successRedirect: "/homepage",

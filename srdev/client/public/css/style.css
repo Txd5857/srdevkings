@@ -85,6 +85,14 @@ div.contentColumn {
     top: 25%;
 }
 
+div.adminColumn {
+    background-color: #EFEFEF;
+    border: none;
+    margin: 5px;
+    padding-top: 70%;
+    text-align: center;
+}
+
 /* User Color Buttons */
 
 .teamBlue {
