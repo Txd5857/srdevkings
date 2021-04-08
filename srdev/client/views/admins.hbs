@@ -22,23 +22,23 @@
                     <th scope="col">TEAM</th>
                 </tr>
             </thead>
-            {{#each admins}}
+            {{#each users}}
             <tbody>
                 <tr>
-                    <th scope="row"><a href = "/admins/{{this.admin_id}}" class="btn mb-0 btn-lg">Full Name</a></th>
-                    <td class='yur'>Role</td>
-                    <td><i class="fa fa-bus bus"><p>Bus</p></i></td>
+                    <th scope="row"><a href = "/admins/{{this.admin_id}}" class="btn mb-0 btn-lg">{{ this.username }}</a></th>
+                    <td class='yur'>{{ this.username }}</td>
+                    <td><i class="fa fa-bus bus"><p> Can not be shown </p></i></td>
 
                     {{#if this.how_heard}}
                         <td></td>
                     {{else}}
-                        <td>None</td>
+                        <td>Can not be shown</td>
                     {{/if}}
 
                     {{#if this.med_code}}
-                        <td>test</td>
+                        <td>Can not be shown</td>
                     {{else}}
-                        <td>None</td>
+                        <td>Can not be shown</td>
                     {{/if}}
                 </tr>
             </tbody>

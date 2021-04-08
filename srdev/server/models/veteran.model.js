@@ -165,21 +165,21 @@ Veteran.getVeteranByID = (id, result)=>{
 }
 
 // create new veteran
-Veteran.createVeteran = (teamReqData, result) =>{
-    mysqlConnection.query('INSERT INTO veteran SET ? ', teamReqData, (err, res)=>{
+Veteran.createVeteran = (veteranReqData, result) =>{
+    mysqlConnection.query('INSERT INTO veteran SET ? ', veteranReqData, (err, res)=>{
         if(err){
             console.log('Error while inserting data');
             result(null, err);
         } else{
-            console.log('Veteran created successfully',teamReqData);
+            console.log('Veteran created successfully',veteranReqData);
             result(null, res);
         }
     })
 }
 
 // update veteran
-Veteran.updateVeteran = (id, teamReqData, result)=>{
-    mysqlConnection.query("UPDATE veteran SET first_name=?,last_name=?,email=?,phone=?,organization=?,designation=?,salary=? WHERE id = ?", [teamReqData.first_name,teamReqData.last_name,teamReqData.email,teamReqData.phone,teamReqData.organization,teamReqData.designation,teamReqData.salary, id], (err, res)=>{
+Veteran.updateVeteran = (id, veteranReqData, result)=>{
+    mysqlConnection.query("UPDATE veteran SET first_name=?,last_name=?,email=?,phone=?,organization=?,designation=?,salary=? WHERE id = ?", [veteranReqData.first_name,veteranReqData.last_name,veteranReqData.email,veteranReqData.phone,veteranReqData.organization,veteranReqData.designation,veteranReqData.salary, id], (err, res)=>{
         if(err){
             console.log('Error while updating the veteran');
             result(null, err);
