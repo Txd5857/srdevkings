@@ -14,6 +14,7 @@ const connectFlash =require("connect-flash");
 
 //api routes
 const TeamRoutes = require('./server/routes/team.route');
+const UserRoutes = require('./server/routes/user.route');
 const BusRoutes = require('./server/routes/bus.route');
 const GuardianRoutes = require('./server/routes/guardian.route');
 const MissionRoutes = require('./server/routes/mission.route');
@@ -21,7 +22,7 @@ const VeteranRoutes = require('./server/routes/veteran.route');
 const initWebRoutes = require('./client/routes/web')
 //page routes 
 const pageRoute = require("./client/routes/pages"); 
-const apiRoute = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes];
+const apiRoute = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes, UserRoutes];
 const authRoute = require('./client/routes/auth');
 
 const publicDir = path.join(__dirname, 'client/public'); // Public Directory
