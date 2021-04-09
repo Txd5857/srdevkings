@@ -14,7 +14,7 @@ userRouter.get('', async(req,res)=>{
          const userAPI = await axios.get('http://localhost:5002/api/users');
         //  console.log("faa",userAPI.data);
         //  user_list = userAPI.data;
-         res.render('admins', { users : userAPI.data});
+         res.render('users', { users : userAPI.data});
          console.log("teat",users);
     }catch (error) {
         if(error.response){
