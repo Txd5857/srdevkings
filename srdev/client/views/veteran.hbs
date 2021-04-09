@@ -66,21 +66,51 @@
         <div class="card-body ml-3">
           <li class="d-flex w-100 justify-content-between">
             <h5>Uses</h5>
-            <p>[FILL THIS IN]</p>
+              <p>
+                <br>Cane: {{#if veteran.med_cane}} Yes. {{else}} No.{{/if}}
+                <br>Walker: {{#if veteran.med_walker}} Yes. {{else}} No.{{/if}}
+                <br>Pacemaker: {{#if veteran.med_pacemaker}} Yes. {{else}} No.{{/if}}
+                <br>Scooter: {{#if veteran.med_scooter}} Yes. {{else}} No.{{/if}}
+              </p>
           </li>
           <li class="d-flex w-100 justify-content-between">
-            <h5>HX</h5>
-            <p>[FILL THIS IN]</p>
+            <h5>History</h5>
+              <p>
+                <br>Diabetes: {{#if veteran.Diabetes}} Yes. {{else}} No.{{/if}}
+                <br>Empysema: {{#if veteran.med_emphysema}} Yes. {{else}} No.{{/if}}
+                <br>Falls: {{#if veteran.med_falls}} Yes. {{else}} No.{{/if}}
+                <br>Heart Disease: {{#if veteran.med_heart_disease}} Yes. {{else}} No.{{/if}}
+                <br>Dementia: {{#if veteran.med_dimentia}} Yes. {{else}} No.{{/if}}
+                <br>Stroke: {{#if veteran.med_stroke}} Yes. {{else}} No.{{/if}}
+                <br>Urinary: {{#if veteran.med_urinary}} Yes. {{else}} No.{{/if}}
+                <br>Urostomy: {{#if veteran.med_urostomy}} Yes. {{else}} No.{{/if}}
+                <br>Seizures: {{#if veteran.med_seizures}} Yes. {{else}} No.{{/if}}
+            </p>
           </li>  
           <li class="d-flex w-100 justify-content-between">
-            <h5>Uses</h5>
-            <p>[FILL THIS IN]</p>
+            <h5>Prescriptions (RX)</h5>
+              {{#if veteran.med_list }}
+              <br>{{ veteran.med_list }}
+              {{else}}
+              <br>None
+              {{/if}}
           </li>  
           <li class="d-flex w-100 justify-content-between">
-            <h5>HX</h5>
-            <p>[FILL THIS IN]</p>
-          </li>  
-          <p>Inform emergency respondsers of [FILL THIS IN]</p> 
+            <h5>Diet</h5>
+              {{#if veteran.diet_restrictions }}
+              <p>{{ veteran.diet_restrictions }}</p>
+              {{else}}
+              <p>None</p>
+              {{/if}}
+          </li>
+          <li class="d-flex w-100 justify-content-between">
+            <h5>Inform emergency respondsers of...</h5>
+            <p>
+              <br>Any Symptoms
+              <br>Time of onset of symptoms
+              <br>Any medications that have already been administered.
+            </p>
+          </li> 
         </div>
       </div>
     </div>
@@ -105,28 +135,20 @@
           <li class="d-flex w-100 justify-content-between">
             <h5>Wheelchair</h5>
             {{#if veteran.med_wheelchair}}
-            <p>Needs a Wheelchair</p>
+            <br>Needs a Wheelchair
+            <br>Chair Location: {{#if veteran.med_chair_loc}} {{veteran.med_chair_loc}}.{{else}}NO DATA{{/if}}
             {{else}}
-            <p>Back-up</p>
+            <br>Back-up
             {{/if}}
           </li>  
           <li class="d-flex w-100 justify-content-between">
             <h5>Needs</h5></br>
+              <br>Oxygen: {{#if veteran.med_oxygen}} Yes. {{else}} No.{{/if}}
+              <br>Nebulizer: {{#if veteran.med_nebulizer}} Yes. {{else}} No.{{/if}}
+              <br>CPAP: {{#if veteran.med_cpap}} Yes. {{else}} No.{{/if}}
+              <br>Can walk a Football Field?: {{#if veteran.med_football}} Yes. {{else}} No.{{/if}}
+              <br>Can use Bus Steps?: {{#if veteran.med_walk_bus_steps}} Yes. {{else}} No.{{/if}}
           </li> 
-            <p>
-              Cane: {{#if veteran.med_cane}} Yes. {{else}} No.{{/if}}
-              Walker: {{#if veteran.med_walker}} Yes. {{else}} No.{{/if}}
-              Chair Location: {{#if veteran.med_chair_loc}} {{veteran.med_chair_loc}}. {{else}} None.{{/if}}</br>
-              Scooter: {{#if veteran.med_scooter}} Yes. {{else}} No.{{/if}}
-              Empysema: {{#if veteran.med_emphysema}} Yes. {{else}} No.{{/if}}
-              Falls: {{#if veteran.med_falls}} Yes. {{else}} No.{{/if}}
-              Heart Disease: {{#if veteran.med_heart_disease}} Yes. {{else}} No.{{/if}}
-              Pacemaker: {{#if veteran.med_pacemaker}} Yes. {{else}} No.{{/if}} Joint Replacement: {{#if veteran.med_joint_replacement}} Yes. {{else}} No.{{/if}} Kidney: {{#if veteran.med_kidney}} Yes. {{else}} No.{{/if}}</ br>
-              Diabetes: {{#if veteran.Diabetes}} Yes. {{else}} No.{{/if}} Seizures: {{#if veteran.med_seizures}} Yes. {{else}} No.{{/if}} urostomy: {{#if veteran.med_urostomy}} Yes. {{else}} No.{{/if}} Dementia: {{#if veteran.med_dimentia}} Yes. {{else}} No.{{/if}}
-              Nebulizer: {{#if veteran.med_nebulizer}} Yes. {{else}} No.{{/if}} Oxygen: {{#if veteran.med_oxygen}} Yes. {{else}} No.{{/if}} Football Field: {{#if veteran.med_football}} Yes. {{else}} No.{{/if}}
-              Walk Bus Steps: {{#if veteran.med_walk_bus_steps}} Yes. {{else}} No.{{/if}} Stroke: {{#if veteran.med_stroke}} Yes. {{else}} No.{{/if}} Urinary: {{#if veteran.med_urinary}} Yes. {{else}} No.{{/if}}
-              CPAP: {{#if veteran.med_cpap}} Yes. {{else}} No.{{/if}}
-            </p>
           <li class="d-flex w-100 justify-content-between">
             <h5>Service</h5>
             <p>{{ veteran.service_branch }}</p>
