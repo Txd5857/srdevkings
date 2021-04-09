@@ -5,7 +5,7 @@ let handleHelloWorld = async (req, res) => {
     try {
         const userAPI = await axios.get('http://localhost:5002/api/users');
 
-        return res.render('admins', { users : userAPI.data});
+        return res.render('users', { users : userAPI.data});
         
     }catch (error) {
     if(error.response){
