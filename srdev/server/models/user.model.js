@@ -23,7 +23,7 @@ const pool = mysql.createPool({
 // get all teams
 User.getAllUsers = () =>{
     return new Promise( (resolve,reject) => {
-        mysqlConnection.query("SELECT * FROM User", (err, res)=>{
+        mysqlConnection.query("SELECT * FROM user", (err, res)=>{
             if(err) {
                 return reject(err);
             } 
@@ -35,7 +35,7 @@ User.getAllUsers = () =>{
 
 // get user by ID from DB
 User.getUserByID = (id, result)=>{
-    mysqlConnection.query(`SELECT * FROM User WHERE user.user_id=?`, id, (err, res)=>{
+    mysqlConnection.query(`SELECT * FROM user WHERE user.user_id=?`, id, (err, res)=>{
         if(err){
             console.log('Error while fetching user by id', err);
             result(null, err);
