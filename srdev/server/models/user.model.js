@@ -5,9 +5,11 @@ const mysqlConnection = require("../db_config/connection");
 
 const User = function(user){
     this.user_id = user.user_id,
-    this.team_id = user.team_id,
     this.username = user.username,
-    this.password = user.password
+    this.team_id = user.team_id,
+    this.team_color = user.color,
+    this.bus_id = user.bus_id,
+    this.bus_name = user.name
 }
 
 const pool = mysql.createPool({
@@ -23,10 +25,15 @@ const pool = mysql.createPool({
 // get all teams
 User.getAllUsers = () =>{
     return new Promise( (resolve,reject) => {
-        mysqlConnection.query("SELECT * FROM user", (err, res)=>{
+        mysqlConnection.query("SELECT * FROM user LEFT JOIN team ON user.teamID = team.team_id LEFT JOIN bus ON bus.bus_id = team.bus_id;", (err, res)=>{
             if(err) {
                 return reject(err);
             } 
+            for(user in res){
+                var index = parseInt(user);
+                res[index].role = res[index].username.replace("_"," ");
+                res[index].name = res[index].name.replace(" ","_");
+            }
             return resolve(res);
         });
     });
