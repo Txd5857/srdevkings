@@ -58,6 +58,19 @@ body {
     border-radius: 10px;
 }
 
+div.exportContainer {
+    position: absolute;
+    margin-left: 30%;
+}
+
+.exportButton {
+    border: none;
+    color:#ffffff;
+    background-color: #4C65E4;
+    padding: 9px 20px 11px;
+    border-radius: 5px;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -190,6 +203,12 @@ div.rowBox {
     text-align: center;
     display: inline-block;
     text-transform: uppercase;
+}
+
+div.block {
+    width: 55%; 
+    border: none; 
+    border-radius: 10px;
 }
 
 /* Mobile */
