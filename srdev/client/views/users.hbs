@@ -13,37 +13,33 @@
 </head>
 
 <body>
-            <table class="table">
-            <thead>
-                <tr class="table-active">
-                    <th scope="col">NAME</th>
-                    <th scope="col">ROLE</th>
-                    <th scope="col">BUS</th>
-                    <th scope="col">TEAM</th>
-                </tr>
-            </thead>
-            {{#each users}}
-            <tbody>
-                <tr>
-                    <th scope="row"><a href = "/users/{{this.admin_id}}" class="btn mb-0 btn-lg">{{ this.username }}</a></th>
-                    <td class='yur'>{{ this.username }}</td>
-                    <td><i class="fa fa-bus bus"><p> Can not be shown </p></i></td>
+      {{> navigation}}
+      <br>
+        <table class="table">
+        <thead>
+            <tr class="table-active">
+                <th scope="col" style=" padding-left: 1%; width: 20%;">NAME</th>
+                <th scope="col" style="width: 64%;">ROLE</th>
+                <th scope="col" style="width: 15%;" >BUS</th>
+                <th scope="col">TEAM</th>
+            </tr>
+        </thead>
+        {{#each users}}
+        <tbody>
+            <tr>
+                <th scope="row"><a href = "/admins/{{this.admin_id}}" class="btn mb-0 btn-lg">{{ this.username }}</a></th>
+                <td class='yur'>role</td>
+                <td><i class="fa fa-bus bus_2"><p> Can not be shown </p></i></td>
+                {{#if this.how_heard}}
+                    <td></td>
+                {{else}}
+                    <td>Can not be shown</td>
+                {{/if}}
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
 
-                    {{#if this.how_heard}}
-                        <td></td>
-                    {{else}}
-                        <td>Can not be shown</td>
-                    {{/if}}
-
-                    {{#if this.med_code}}
-                        <td>Can not be shown</td>
-                    {{else}}
-                        <td>Can not be shown</td>
-                    {{/if}}
-                </tr>
-            </tbody>
-            {{/each}}
-        </table>
 
 </body>
 </html>

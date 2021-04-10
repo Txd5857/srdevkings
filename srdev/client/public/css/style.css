@@ -78,6 +78,10 @@ body {
     text-transform: uppercase;
 }
 
+.bus_2 {
+    text-transform: uppercase;
+}
+
 div.contentColumn {
     background-color: #EFEFEF;
     border: none;
@@ -91,6 +95,13 @@ div.adminColumn {
     margin: 5px;
     padding-top: 70%;
     text-align: center;
+    /* display: inline-table; */
+}
+
+div.rowBox {
+    margin-left: 10%; 
+    margin-right: 10%; 
+    padding-top: 15%;
 }
 
 /* User Color Buttons */
@@ -173,10 +184,23 @@ div.adminColumn {
 }
 
 .medkitRed {
-color: #ffffff;
-background-color: #ed1212;
-padding: 15px 15px;
-text-align: center;
-display: inline-block;
-text-transform: uppercase;
+    color: #ffffff;
+    background-color: #ed1212;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+/* Mobile */
+@media only screen and (max-width: 766px) {
+
+    div.rowBox {
+        margin-left: 0%; 
+        margin-right: 0%; 
+    }
+
+    div.adminColumn{
+        padding-top: 5%;
+    }
 }
