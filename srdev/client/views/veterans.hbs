@@ -57,19 +57,28 @@
                     <th scope="row"><a href = "/veterans/{{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}}</a></th>
                     <td class='yur'>{{this.guardian_name}}</td>
                     <td><i class="fa fa-bus bus"><p>{{this.bus_id}}</p></i></td>
-
-                    {{#if this.how_heard}}
-                        <td>{{this.how_heard}}</td>
-                    {{else}}
-                        <td>None</td>
-                    {{/if}}
-
-                    {{#if this.med_code}}
-                        <td>{{this.med_code}}</td>
-                    {{else}}
-                        <td>None</td>
-                    {{/if}}
-
+                    <td>
+                        <i class="fa fa-user team{{ veteran.team_color }} ml-3">
+                            <span class="ml-2">
+                            {{#if this.team_color }}
+                            Team: {{ this.team_color }}
+                            {{else}}
+                            Team: Not Assigned
+                            {{/if}}
+                            </span>
+                        </i>
+                    </td>
+                    <td>
+                        <i class="fa fa-medkit medkit{{ veteran.med_code }}">
+                            <span class="ml-2">
+                                {{#if this.med_code }}
+                                Med Code: {{ this.med_code }}
+                                {{else}}
+                                Med Code: Not Assigned
+                                {{/if}}
+                            </span>
+                        </i>
+                    </td>
                     {{!-- {{#ifCond this.med_code '==' "RED")}}
                         <td><i class="fa fa-user userRed"><p>{{this.med_code}}</p></i></td> --}}
                     {{!-- {{#elseif this.med_code == "BLUE"}}
