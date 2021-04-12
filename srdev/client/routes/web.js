@@ -7,6 +7,7 @@ const userListController = require('../controllers/userListController');
 const exportController = require('../controllers/exportController');
 const missionCreationController = require('../controllers/missionCreationController');
 const adminController = require('../controllers/adminController');
+const pdfViewerController = require('../controllers/pdfViewerController');
 const passport = require('passport');
 const initPassportLocal = require("../controllers/passportLocalController");
 // Init all passport
@@ -39,6 +40,7 @@ let initWebRoutes = (app) => {
     router.get("/admin/users",loginController.checkLoggedIn, userListController.handleHelloWorld);
     router.get("/admin/mission_creation", loginController.checkLoggedIn, missionCreationController.handleHelloWorld);
     router.get("/export", loginController.checkLoggedIn, exportController.handleHelloWorld);
+    router.get("/pdf_viewer", loginController.checkLoggedIn, pdfViewerController.handleHelloWorld);
 
     return app.use("/", router);
 };
