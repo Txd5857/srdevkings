@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -13,8 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-  <!-- <script src="js/scripts.js"></script> -->
+<body style="background-color: #E5E5E5;">
   {{> navigation}}
   <div class="container">
     <div class="row">
@@ -29,8 +27,24 @@
           <h4>{{ veteran.service_branch }} ({{ veteran.service_years }})</h4> 
             <ul class="list-group">
               <li class="d-flex">
-                <i class="fa fa-medkit medkit{{ veteran.med_code }}"><span class="ml-2">Med Code: {{ veteran.med_code }} </span></i>
-                <i class="fa fa-user team{{ veteran.team_color }} ml-3"><span class="ml-2">Team: {{ veteran.team_color }} </span></i>
+                <i class="fa fa-medkit medkit{{ veteran.med_code }}">
+                  <span class="ml-2">
+                    {{#if veteran.med_code }}
+                    Med Code: {{ veteran.med_code }}
+                    {{else}}
+                    Med Code: Not Assigned
+                    {{/if}}
+                  </span>
+                </i>
+                <i class="fa fa-user team{{ veteran.team_color }} ml-3">
+                  <span class="ml-2">
+                    {{#if veteran.team_color }}
+                    Team: {{ veteran.team_color }}
+                    {{else}}
+                    Team: Not Assigned
+                    {{/if}}
+                  </span>
+                </i>
               </li> 
             </ul>
         </div>
@@ -96,7 +110,7 @@
               {{/if}}
           </li>  
           <li class="d-flex w-100 justify-content-between">
-            <h5>Diet</h5>
+            <h5>Diet Restriction</h5>
               {{#if veteran.diet_restrictions }}
               <p>{{ veteran.diet_restrictions }}</p>
               {{else}}

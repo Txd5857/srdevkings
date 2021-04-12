@@ -5,6 +5,7 @@ const homePageController = require('../controllers/homePageController');
 const veteransController = require('../controllers/veteransController');
 const userListController = require('../controllers/userListController');
 const exportController = require('../controllers/exportController');
+const missionCreationController = require('../controllers/missionCreationController');
 const adminController = require('../controllers/adminController');
 const passport = require('passport');
 const initPassportLocal = require("../controllers/passportLocalController");
@@ -15,13 +16,6 @@ let router = express.Router();
 
 let initWebRoutes = (app) => {
     router.get('/', loginController.checkLoggedIn,homePageController.handleHelloWorld)
-    router.get("/homepage", loginController.checkLoggedIn, homePageController.handleHelloWorld);
-    router.get("/veterans",loginController.checkLoggedIn,veteransController.handleHelloWorld);
-    // router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.checkVeteran, veteransController.handleByeWorld);
-    router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.handleByeWorld);
-    router.get("/admin",loginController.checkLoggedIn, adminController.handleHelloWorld);
-    router.get("/admin/users",loginController.checkLoggedIn, userListController.handleHelloWorld);
-    router.get("/export", loginController.checkLoggedIn, exportController.handleHelloWorld);
     router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
         successRedirect: "/homepage",
@@ -30,13 +24,22 @@ let initWebRoutes = (app) => {
         failureFlash: true
     }));
 
+    //TODO: Kill this page before we hand off to the client
     router.get('/register',  (req,res) =>{
         res.render('register');
     });
     router.post("/logout", loginController.postLogOut);
-    router.get('/homepage', (req,res) =>{
-        res.render('homepage');
-    });
+    router.get('/homepage', (req,res) =>{ res.render('homepage'); });
+    router.get("/homepage", loginController.checkLoggedIn, homePageController.handleHelloWorld);
+    
+    router.get("/veterans",loginController.checkLoggedIn,veteransController.handleHelloWorld);
+    router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.handleByeWorld);
+    // router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.checkVeteran, veteransController.handleByeWorld);
+    router.get("/admin",loginController.checkLoggedIn, adminController.handleHelloWorld);
+    router.get("/admin/users",loginController.checkLoggedIn, userListController.handleHelloWorld);
+    router.get("/admin/mission_creation", loginController.checkLoggedIn, missionCreationController.handleHelloWorld);
+    router.get("/export", loginController.checkLoggedIn, exportController.handleHelloWorld);
+
     return app.use("/", router);
 };
 module.exports = initWebRoutes;
