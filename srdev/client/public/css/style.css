@@ -1,12 +1,37 @@
-.yur {
-    color:red;
-}
-
 /* BASIC */
 .bus-nav ul li a {
     color: white;
 }
 
+body {
+    background-color: lightgray;
+    font-family: Montserrat;
+}
+
+h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.container {
+    border-radius: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.flex-row {
+    padding-top: 1.5%;
+}
+
+.btn-lg {
+    text-align: left;
+    color: black;
+}
+
+/* Navigation */
 .nav-item {
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
@@ -23,6 +48,7 @@
     color: white;
 }
 
+/* Logout */
 button.logoutButton {
     background-color: #4C65E4; 
     border: none;
@@ -35,6 +61,7 @@ button.logoutButton:hover {
     color: white;
 }
 
+/* Icon Back Button */
 .backButton {
     background-color: grey;
     border: none;
@@ -46,8 +73,6 @@ button.logoutButton:hover {
     text-transform: uppercase;
     font-size: 20px;
     margin-right: 5%;
-    /* This is only Web version */
-    /* margin-right: 40%; */
     -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
     box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
@@ -57,20 +82,18 @@ button.logoutButton:hover {
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    }
+}
 
 .backButton:hover {
 color: black;
 }
 
-body {
-    background-color: lightgray;
+div.search {
+    width: 100%;
+    padding-left: 65%;
 }
 
-.container {
-    border-radius: 10px;
-}
-
+/* Export */
 div.exportContainer {
     position: absolute;
     margin-left: 30%;
@@ -85,17 +108,9 @@ div.exportContainer {
     cursor: pointer;
 }
 
-.bold {
-    font-weight: bold;
-}
-
-.flex-row {
-    padding-top: 1.5%;
-}
-
-.btn-lg {
-    text-align: left;
-    color: black;
+button.userButton {
+    border-radius: 5px;
+    background-color:#E5E5E5;
 }
 
 .bus {
@@ -109,11 +124,14 @@ div.exportContainer {
     text-transform: uppercase;
 }
 
+a.contentCol {
+    padding-top: 30%;
+}
+
 div.contentColumn {
     background-color: #EFEFEF;
     border: none;
     margin: 2px;
-    top: 25%;
 }
 
 .title {
@@ -147,11 +165,26 @@ div.adminColumn {
     text-align: center;
 }
 
+div.adminColumn2 {
+    background-color: #ffffff;
+    border: none;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.007em;
+    margin: 5px;
+    padding-top: 15%;
+    text-align: center;
+}
+
 /* User Color Buttons */
 
 .teamBlue {
     color: #ffffff;
     background-color: #4c65e4;
+    border-radius: 10px;
     padding: 15px 15px;
     text-align: center;
     display: inline-block;
@@ -251,5 +284,20 @@ div.block {
 
     div.adminColumn{
         padding-top: 5%;
+    }
+
+    div.search {
+        padding-left: 45%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    
+    div.contentCol {
+        padding-top: 10%;
+    }
+
+    a.contentCol {
+        padding-top: 0%;
     }
 }

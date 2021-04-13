@@ -17,25 +17,31 @@
     <a href="../public/scripts/veteran.js"></a>
 </head>
 
-<body style="background-color: #E5E5E5;">
+<body>
+  <!-- <script src="js/scripts.js"></script> -->
+    {{!-- <div class="bus-nav" style="color:  white;">
+  <nav class="navbar navbar-expand-lg "> <a class="navbar-brand " href="#" data-abc="true">Honor Flight BUS BOOK</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto" style="color: white;">
+            <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true">Home <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Book</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Veterans</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Admin</a> </li>
+        </ul>
+    </div>
+</nav>
+</div> --}}
 {{> navigation}}
 <br>
     <div class="container">
-    <h1> Veterans </h1>
-    <div class="input-group search">
-        <input type="text" class="form-control" placeholder="Search...">
-        <div class="input-group-append">
-            <button class="btn btn-light" type="button">
-                <svg class="text-secondary" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9659 11.1466C16.9659 12.5327 16.5803 13.8266 15.913 14.9221L19.6165 18.7125C20.1278 19.2358 20.1278 20.0842 19.6165 20.6075C19.1052 21.1308 18.2762 21.1308 17.7649 20.6075L14.1353 16.8929C12.9747 17.7728 11.5382 18.2932 9.98294 18.2932C6.12637 18.2932 3 15.0936 3 11.1466C3 7.19964 6.12637 4 9.98294 4C13.8395 4 16.9659 7.19964 16.9659 11.1466ZM9.98294 15.6132C12.3933 15.6132 14.3473 13.6135 14.3473 11.1466C14.3473 8.67975 12.3933 6.67998 9.98294 6.67998C7.57258 6.67998 5.6186 8.67975 5.6186 11.1466C5.6186 13.6135 7.57258 15.6132 9.98294 15.6132Z" fill="#4C65E4"/>
-                </svg>
-            </button>
-        </div>
-    </div>
+    <h1> Buses </h1>
+    <form class="form-inline" style="float: right;">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-3" type="submit">Search</button>
+    </form>
 
         <br>
-        <div class="table-responsive">
-        <table class="table" style="background-color: #FFFFFF;">
+        <table class="table">
             <thead>
                 <tr class="table-active">
                     <th scope="col">NAME</th>
@@ -90,7 +96,6 @@
             </tbody>
             {{/each}}
         </table>
-        </div>
     </div>
 </body>
 </html>

@@ -4,9 +4,12 @@ const loginController = require('../controllers/loginController');
 const homePageController = require('../controllers/homePageController');
 const veteransController = require('../controllers/veteransController');
 const userListController = require('../controllers/userListController');
+const busListController = require('../controllers/busListController');
+const hotelReservationListController = require('../controllers/hotelReservationListController');
 const exportController = require('../controllers/exportController');
 const missionCreationController = require('../controllers/missionCreationController');
 const adminController = require('../controllers/adminController');
+const pdfViewerController = require('../controllers/pdfViewerController');
 const passport = require('passport');
 const initPassportLocal = require("../controllers/passportLocalController");
 // Init all passport
@@ -34,11 +37,15 @@ let initWebRoutes = (app) => {
     
     router.get("/veterans",loginController.checkLoggedIn,veteransController.handleHelloWorld);
     router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.handleByeWorld);
-    // router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.checkVeteran, veteransController.handleByeWorld);
+    router.get("/buses",loginController.checkLoggedIn,busListController.handleHelloWorld);
+    router.get("/hotel_reservations",loginController.checkLoggedIn,hotelReservationListController.handleHelloWorld);
     router.get("/admin",loginController.checkLoggedIn, adminController.handleHelloWorld);
     router.get("/admin/users",loginController.checkLoggedIn, userListController.handleHelloWorld);
+    router.get("/admin/users/change_password/",loginController.checkLoggedIn, userListController.handleByeWorld);
     router.get("/admin/mission_creation", loginController.checkLoggedIn, missionCreationController.handleHelloWorld);
     router.get("/export", loginController.checkLoggedIn, exportController.handleHelloWorld);
+    router.get("/pdf_viewer", loginController.checkLoggedIn, pdfViewerController.handleHelloWorld);
+    router.get("/pdf_viewer/:filePath", loginController.checkLoggedIn, pdfViewerController.handleHelloWorld);
 
     return app.use("/", router);
 };

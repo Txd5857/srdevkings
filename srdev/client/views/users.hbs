@@ -12,23 +12,36 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body style="background-color: #E5E5E5;">
     {{> navigation}}
     <br>
     <div class="container">
-        <table class="table">
+        <div class="input-group search">
+            <input type="text" class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+                <button class="btn btn-light" type="button">
+                    <svg class="text-secondary" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9659 11.1466C16.9659 12.5327 16.5803 13.8266 15.913 14.9221L19.6165 18.7125C20.1278 19.2358 20.1278 20.0842 19.6165 20.6075C19.1052 21.1308 18.2762 21.1308 17.7649 20.6075L14.1353 16.8929C12.9747 17.7728 11.5382 18.2932 9.98294 18.2932C6.12637 18.2932 3 15.0936 3 11.1466C3 7.19964 6.12637 4 9.98294 4C13.8395 4 16.9659 7.19964 16.9659 11.1466ZM9.98294 15.6132C12.3933 15.6132 14.3473 13.6135 14.3473 11.1466C14.3473 8.67975 12.3933 6.67998 9.98294 6.67998C7.57258 6.67998 5.6186 8.67975 5.6186 11.1466C5.6186 13.6135 7.57258 15.6132 9.98294 15.6132Z" fill="#4C65E4"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class="table-responsive">
+        <table class="table" style="background-color: #FFFFFF;">
         <thead>
             <tr class="table-active">
                 <th scope="col" style=" padding-left: 1%; width: 20%;">USERNAME</th>
                 <th scope="col" style="width: 64%;">ROLE</th>
                 <th scope="col" style="width: 15%;" >BUS</th>
                 <th scope="col">TEAM</th>
+                <th scope="col">PASSWORD</th>
             </tr>
         </thead>
         {{#each users}}
         <tbody>
             <tr>
-                <th scope="row"><a href = "/admins/{{this.admin_id}}" class="btn mb-0 btn-lg">{{ this.username }}</a></th>
+                <th scope="row" class="btn mb-0 btn-lg">{{ this.username }}</th>
                 <td class='yur'>{{ this.role }}</td>
                 <td><i class="fa fa-bus bus_2"><p>
                     {{#if this.name }}
@@ -44,11 +57,12 @@
                         Team Not Assigned
                     {{/if}}
                 </p></i></td>
-
+                <td><button type="button" class="btn btn-light userButton">Change <br>Password</button></td>
             </tr>
         </tbody>
         {{/each}}
         </table>
+        </div>
     </div>
 </body>
 </html>
