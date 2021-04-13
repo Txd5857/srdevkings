@@ -8,6 +8,12 @@ body {
     font-family: Montserrat;
 }
 
+h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+}
+
 .container {
     border-radius: 10px;
 }
@@ -80,6 +86,11 @@ button.logoutButton:hover {
 
 .backButton:hover {
 color: black;
+}
+
+div.search {
+    width: 100%;
+    padding-left: 65%;
 }
 
 /* Export */
@@ -273,6 +284,10 @@ div.block {
 
     div.adminColumn{
         padding-top: 5%;
+    }
+
+    div.search {
+        padding-left: 45%;
     }
 }
 
