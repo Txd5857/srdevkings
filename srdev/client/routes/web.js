@@ -32,10 +32,10 @@ let initWebRoutes = (app) => {
         res.render('register');
     });
     router.post("/logout", loginController.postLogOut);
-    router.get('/homepage', (req,res) =>{ res.render('homepage'); });
+    // router.get('/homepage', (req,res) =>{ res.render('homepage'); });
     router.get("/homepage", loginController.checkLoggedIn, homePageController.handleHelloWorld);
     
-    router.get("/veterans",loginController.checkLoggedIn,veteransController.handleHelloWorld);
+    router.get("/veterans",loginController.checkLoggedIn, veteransController.handleHelloWorld);
     router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.handleByeWorld);
     router.get("/buses",loginController.checkLoggedIn,busListController.handleHelloWorld);
     router.get("/hotel_reservations",loginController.checkLoggedIn,hotelReservationListController.handleHelloWorld);

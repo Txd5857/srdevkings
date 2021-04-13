@@ -1,13 +1,16 @@
 <div class="bus-nav">
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4C65E4;"> 
-    <a class="navbar-brand" href="/homepage" data-abc="true">Honor Flight Bus Book</a> 
-            <img class="mr-auto" src="img/honor_flight_white.png" style="max-width: 55px; color:white;" alt="Honor Flight">
+    <a class="navbar-brand" href="/homepage" data-abc="true">Honor Flight Bus Book </a> 
+            <img class="mr-auto" src="/img/honor_flight_white.png" style="max-width: 55px; color:white;" alt="Honor Flight">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav ml-auto" style="color: white;">
             <li class="nav-item active"> <a class="nav-link" href="/homepage" data-abc="true">Book <span class="sr-only">(current)</span></a> </li>
             <li class="nav-item"> <a class="nav-link" href="/veterans" data-abc="true">Veterans</a> </li>
+
+            {{#ifEquals userID 13}}
             <li class="nav-item"> <a class="nav-link" href="/admin" data-abc="true">Admin</a> </li>
+            {{/ifEquals}}
             <li class="nav-item"><form method="POST" action="/logout"> <button type="submit" class="btn logoutButton">Log out</button></form></li>
         </ul>
     </div>

@@ -8,10 +8,8 @@ let getPageLogin = (req, res) => {
 
 let handleLogin = async (req, res) => {
     let errorsArr = [];
-    console.log("fuck");
 
     let validationErrors = validationResult(req);
-    console.log("fuck");
 
     if (!validationErrors.isEmpty()) {
         let errors = Object.values(validationErrors.mapped());
@@ -19,13 +17,12 @@ let handleLogin = async (req, res) => {
             errorsArr.push(item.msg);
         });
         req.flash("errors", errorsArr);
-        console.log("fuck");
         return res.redirect("/login");
     }
-    console.log("fuck");
 
     try {
         await loginService.handleLogin(req.body.username, req.body.password);
+        console.log("awaited");
         return res.redirect("/homepage");
     } catch (err) {
         req.flash("errors", err);

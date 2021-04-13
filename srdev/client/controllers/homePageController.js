@@ -1,7 +1,24 @@
+const axios = require('axios');
+const passport = require('passport');
+const initPassportLocal = require("../controllers/passportLocalController");
+// Init all passport
+initPassportLocal();
+
 let handleHelloWorld = async (req, res) => {
-    return res.render("homepage",{
-        user: req.user
-    });
+    let userid = req.session.passport.user;
+
+    // return res.render('homepage', { user_id : userid, user:userid });
+    // console.log(req.session,"test")
+
+    const api_url = "http://localhost:5002/api/pages/"+userid;
+    try {
+         const pageAPI = await axios.get(api_url);
+         return res.render('homepage', { user_id : userid, pages : pageAPI.data});
+    }catch (error) {
+        if(error.response){
+            return res.render('homepage');
+        }
+    }
 };
 
 module.exports = {

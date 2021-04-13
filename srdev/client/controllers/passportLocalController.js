@@ -12,7 +12,6 @@ let initPassportLocal = () => {
         },
         async (req, username, password, done) => {
             try {
-                console.log("init passportlocal");
                 await loginService.findUserByUsername(username).then(async (user) => {
                     if (!user) {
                         return done(null, false, req.flash("errors", `This user username "${username}" doesn't exist`));
@@ -20,6 +19,7 @@ let initPassportLocal = () => {
                     if (user) {
                         let match = await loginService.comparePassword(password, user);
                         if (match === true) {
+                            // req.session.user = user;
                             return done(null, user, null)
                         } else {
                             return done(null, false, req.flash("errors", match)
@@ -36,7 +36,7 @@ let initPassportLocal = () => {
 };
 
 passport.serializeUser((user, done) => {
-    console.log('serializing user');
+    console.log('serializing user,');
     done(null, user.userID);
 });
 
