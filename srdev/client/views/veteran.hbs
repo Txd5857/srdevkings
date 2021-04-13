@@ -102,15 +102,17 @@
                 <br>Seizures: {{#if veteran.med_seizures}} Yes. {{else}} No.{{/if}}
             </p>
           </li>  
-          <li class="d-flex w-75 justify-content-between">
+          <li class="d-inline-block" style="width: 30%;">
             <h5>Prescriptions (RX)</h5>
-              {{#if veteran.med_list }}
-              <br>{{ veteran.med_list }}
-              {{else}}
-              <br>None
-              {{/if}}
+              <div style="margin-left: 240%; width: 100%;">
+                {{#if veteran.med_list }}
+                {{ veteran.med_list }}
+                {{else}}
+                <br>None
+                {{/if}}
+              </div>
           </li>  
-          <li class="d-flex w-75 justify-content-between">
+           <li class="d-flex justify-content-between" style="width: 80%; padding-top: 10%;">
             <h5>Diet Restriction</h5>
               {{#if veteran.diet_restrictions }}
               <p>{{ veteran.diet_restrictions }}</p>
@@ -153,11 +155,11 @@
             <br>Needs a Wheelchair
             <br>Chair Location: {{#if veteran.med_chair_loc}} {{veteran.med_chair_loc}}.{{else}}NO DATA{{/if}}
             {{else}}
-            <br>Back-up
+            Back-up
             {{/if}}
           </li>  
-          <li class="d-flex justify-content-between" style="width: 100%;">
-            <h5>Needs</h5></br>
+          <li class="d-inline-block justify-content-between" style="width: 70%; padding-bottom: 10%">
+            <h5>Needs</h5>
               <br>Oxygen: {{#if veteran.med_oxygen}} Yes. {{else}} No.{{/if}}
               <br>Nebulizer: {{#if veteran.med_nebulizer}} Yes. {{else}} No.{{/if}}
               <br>CPAP: {{#if veteran.med_cpap}} Yes. {{else}} No.{{/if}}
