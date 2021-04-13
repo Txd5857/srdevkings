@@ -3,13 +3,13 @@ const BusModel = require('../models/bus.model');
 
 // get all bus list
 exports.getBusList = (req, res)=> {
-    //console.log('here all employees list');
-    BusModel.getAllBuss((err, employees) =>{
+    //console.log('here all buses list');
+    BusModel.getAllBuses((err, buses) =>{
         console.log('We are here');
         if(err)
         res.send(err);
-        console.log('Buss', employees);
-        res.send(employees)
+        console.log('Buss', buses);
+        res.send(buses)
     })
 }
 

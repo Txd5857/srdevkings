@@ -19,10 +19,11 @@ const BusRoutes = require('./server/routes/bus.route');
 const GuardianRoutes = require('./server/routes/guardian.route');
 const MissionRoutes = require('./server/routes/mission.route');
 const VeteranRoutes = require('./server/routes/veteran.route');
+const FileRoutes = require('./server/routes/file.route');
 const initWebRoutes = require('./client/routes/web')
 //page routes 
 const pageRoute = require("./client/routes/pages"); 
-const apiRoute = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes, UserRoutes];
+const apiRoute = [BusRoutes, TeamRoutes, GuardianRoutes, MissionRoutes, VeteranRoutes, UserRoutes, FileRoutes];
 const authRoute = require('./client/routes/auth');
 
 const publicDir = path.join(__dirname, 'client/public'); // Public Directory
@@ -73,6 +74,13 @@ filenames.forEach(function (filename) {
   const name = matches[1];
   const template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
   hbs.registerPartial(name, template);
+});
+
+hbs.registerHelper('ifEquals', function(v1, v2, options) {
+    if(v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
 });
 
 app.set('views', path.join(__dirname, 'client/views')); 
