@@ -5,6 +5,13 @@
 
 body {
     background-color: lightgray;
+    font-family: Montserrat;
+}
+
+h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
 }
 
 .container {
@@ -81,6 +88,11 @@ button.logoutButton:hover {
 color: black;
 }
 
+div.search {
+    width: 100%;
+    padding-left: 65%;
+}
+
 /* Export */
 div.exportContainer {
     position: absolute;
@@ -153,11 +165,26 @@ div.adminColumn {
     text-align: center;
 }
 
+div.adminColumn2 {
+    background-color: #ffffff;
+    border: none;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.007em;
+    margin: 5px;
+    padding-top: 15%;
+    text-align: center;
+}
+
 /* User Color Buttons */
 
 .teamBlue {
     color: #ffffff;
     background-color: #4c65e4;
+    border-radius: 10px;
     padding: 15px 15px;
     text-align: center;
     display: inline-block;
@@ -257,6 +284,10 @@ div.block {
 
     div.adminColumn{
         padding-top: 5%;
+    }
+
+    div.search {
+        padding-left: 45%;
     }
 }
 
