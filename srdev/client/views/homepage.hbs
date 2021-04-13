@@ -12,11 +12,57 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-  {{> navigation}}
+<style> 
+  .press {
+  display: table;      /* Required for table-cell to work on li's */
+  padding: 0;          /* Override defaults for lists */
+  margin: 0;           /* Override defaults for lists */
+  width: 100%;         /* Get the row full width */
+  text-align: center;  /* Centre align grid items */
+}
+
+.press li {
+  display: table-cell;   /* Get all images to show in a row */
+  text-align: center;    /* Centre align the images */
+}
+
+@media (max-width: 960px) and (min-width: 501px) {
+  .press li { width: 50%; } /* Show 2 logos per row on medium devices (tablets, phones in landscape) */
+}
+
+@media (max-width: 500px) {
+  .press li { width: 100%; } /* On small screens, show one logo per row */
+}
+
+@media (max-width: 960px) {
+  .press {
+    display: block;
+  }
   
+  .press li {
+    display: inline-block;
+  }
+}
+</style>
+
+<body>
+  {{> navigation userID=user_id }}
+  <h1>{{ user_id }}</h1>
+  <div class='clearfix'></div>
+  <div class='center' style="margin-left: 10%; margin-right: 10%;">
+  <ul class="press">
+
+  {{#each pages}}
+  <li>
+     <div class="press-logo">
+            </div>
+    <a href={{this.path}} class="contentCol"><div class="contentColumn list-group-item list-group-item-action">{{this.sectionName}}</div></a>
+  </li>
+  {{/each}}
+  
+  </ul>
+{{!-- </div>
   <div class="row" style="margin-left: 10%; margin-right: 10%;">
-      <div class="list-group col-sm-4 contentCol">
         <a href="/pdf_viewer/F2_Itinerary.pdf" class="contentCol"><div class="contentColumn list-group-item list-group-item-action">Itinerary</div></a>
         <a href="/pdf_viewer/F3_Key_Mission_Contacts.pdf"><div class="contentColumn list-group-item list-group-item-action">Key Contacts</div></a>
         <a href="/pdf_viewer/F4_CREW_Responsibilities_by_ITINERARY.pdf"><div class="contentColumn list-group-item list-group-item-action">Crew Assignments</div></a>
@@ -25,8 +71,6 @@
         <a href="/pdf_viewer/F8_Arlington_Approval_Information.pdf"><div class="contentColumn list-group-item list-group-item-action">Arlington Reservation</div></a>
         <a href="/pdf_viewer/F10_tour_notes_with_Navy_Museum.pdf"><div class="contentColumn list-group-item list-group-item-action">Navy Yard and Museum Information</div></a>
         <a href="/pdf_viewer/F10_DC_tour_notes_rev_4-24-19.pdf"><div class="contentColumn list-group-item list-group-item-action">DC Tour Notes</div></a>
-      </div>
-      <div class="list-group col-sm-4">
           <a href="/pdf_viewer/F11_Incident_Report.pdf" class="contentCol"><div class="contentColumn list-group-item list-group-item-action">Incident Report Forms H132</div></a>
           <a href="/pdf_viewer/F12_Hilton_Fire_Procedure.pdf"><div class="contentColumn list-group-item list-group-item-action">Hilton Fire Alarm Evac Procedure H102</div></a>
           <a href="/pdf_viewer/F13_Hilton_Crisis_Plan.pdf"><div class="contentColumn list-group-item list-group-item-action">Hilton Crisis Plan</div></a>
@@ -35,7 +79,6 @@
           <a href=""><div class="contentColumn list-group-item list-group-item-action">Fact Sheet (X)</div></a>
           <a href="/pdf_viewer/TS1_Crew_Contact_Information.pdf"><div class="contentColumn list-group-item list-group-item-action">Crew Information</div></a>
           <a href="/pdf_viewer/TS2_National_Spreadsheet.pdf"><div class="contentColumn list-group-item list-group-item-action">National Spreadsheet</div></a>
-      </div>
       <div class="list-group col-sm-4">
         <a href="/buses" class="contentCol"><div class="contentColumn list-group-item list-group-item-action">Bus Lists</div></a>
         <a href="/pdf_viewer/TS6_Vet_&_Guardian_Conact_Info.pdf"><div class="contentColumn list-group-item list-group-item-action">Veteran and Guardian Phone Numbers</div></a>
@@ -46,6 +89,6 @@
         <a href=""><div class="contentColumn list-group-item list-group-item-action">Hotel Check In List Sunday (X)</div></a>
         <a href="/pdf_viewer/TS_11A_SWAM66-48.pdf"><div class="contentColumn list-group-item list-group-item-action">SWA Passenger List</div></a>
       </div>
-  </div>
+  </div> --}}
 </body>
 </html>

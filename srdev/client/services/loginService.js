@@ -9,10 +9,9 @@ let handleLogin = (username, password) => {
         let user = await findUserByUsername(username);
         if (user) {
             //compare password
-            console.log(user, "was not found");
             await bcrypt.compare(password, user.password).then((isMatch) => {
                 if (isMatch) {
-                    console.log("heyits a match");
+                    req.session.user = user;
                     resolve(true);
                 } else {
                     reject(`The password that you've entered is incorrect`);

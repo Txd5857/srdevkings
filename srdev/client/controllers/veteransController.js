@@ -31,7 +31,11 @@ let handleByeWorld = async (req, res) => {
 };
 
 let checkVeteran = async (req, res) => {
-
+    const veteran_id = req.params.id;
+    console.log(veteran_id);
+    if ( veteran_id > 0 ) {
+        
+    }
 };
 
 module.exports = {

@@ -34,39 +34,39 @@ CREATE TABLE `section` (
   `path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`sectionID`));
 
-INSERT INTO section (`sectionName`) VALUES ("CoverPage");
-INSERT INTO section (`sectionName`) VALUES ("Itinerary");
-INSERT INTO section (`sectionName`) VALUES ("KeyContacts");
-INSERT INTO section (`sectionName`) VALUES ("CrewRespByItinerary");
-INSERT INTO section (`sectionName`) VALUES ("CrewRespByAssign");
-INSERT INTO section (`sectionName`) VALUES ("AdvanceCrewCheckList");
-INSERT INTO section (`sectionName`) VALUES ("ArlingtonInfo");
-INSERT INTO section (`sectionName`) VALUES ("ArlingtonReservation");
-INSERT INTO section (`sectionName`) VALUES ("NavyYardAndMuseumReservation");
-INSERT INTO section (`sectionName`) VALUES ("DCTourNotes");
-INSERT INTO section (`sectionName`) VALUES ("IncidentReportForms");
-INSERT INTO section (`sectionName`) VALUES ("HiltonEvacProcedure");
-INSERT INTO section (`sectionName`) VALUES ("HiltonCrisisPlan");
-INSERT INTO section (`sectionName`) VALUES ("POWMIACeremony");
-INSERT INTO section (`sectionName`) VALUES ("BanquetScript");
-INSERT INTO section (`sectionName`) VALUES ("FactSheet");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Cover Page","");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Itinerary","/pdf_viewer/F2_Itinerary.pdf");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Key Contacts","/pdf_viewer/F3_Key_Mission_Contacts.pdf");
+INSERT INTO section (`sectionName`,`path`) VALUES ("CrewRespByItinerary");
+INSERT INTO section (`sectionName`,`path`) VALUES ("CrewRespByAssign");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Advance CrewCheckList");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Arlington Info");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Arlington Reservation");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Navy Yard And Museum Reservation");
+INSERT INTO section (`sectionName`,`path`) VALUES ("DC Tour Notes");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Incident Report Forms");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Hilton Evac Procedure");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Hilton Crisis Plan");
+INSERT INTO section (`sectionName`,`path`) VALUES ("POWMIA Ceremony");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Banquet Script");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Fact Sheet");
 
-INSERT INTO section (`sectionName`) VALUES ("CrewInfo");
-INSERT INTO section (`sectionName`) VALUES ("NationalSpreadsheet");
-INSERT INTO section (`sectionName`) VALUES ("Bus1List");
-INSERT INTO section (`sectionName`) VALUES ("Bus2List");
-INSERT INTO section (`sectionName`) VALUES ("Bus3List");
-INSERT INTO section (`sectionName`) VALUES ("VetAndGuardPhoneNums");
-INSERT INTO section (`sectionName`) VALUES ("HiltonRoomAssignments");
-INSERT INTO section (`sectionName`) VALUES ("VeteranServiceNotes");
-INSERT INTO section (`sectionName`) VALUES ("PlaneBoardingList");
-INSERT INTO section (`sectionName`) VALUES ("RollCallSheets");
-INSERT INTO section (`sectionName`) VALUES ("HotelCheckInListSunday");
-INSERT INTO section (`sectionName`) VALUES ("SWAPassengerList");
-INSERT INTO section (`sectionName`) VALUES ("VeteransList");
-INSERT INTO section (`sectionName`) VALUES ("AdminPanel");
-INSERT INTO section (`sectionName`) VALUES ("ExportFeature");
-INSERT INTO section (`sectionName`) VALUES ("MedicalInfo");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Crew Info");
+INSERT INTO section (`sectionName`,`path`) VALUES ("National Spreadsheet");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Bus1 List","/buses");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Bus2 List","/buses");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Bus3 List","/buses");
+INSERT INTO section (`sectionName`,`path`) VALUES ("VetAndGuardPhoneNums");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Hilton Room Assignments");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Veteran Service Notes");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Plane Boarding List");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Roll Call Sheets");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Hotel CheckIn List Sunday");
+INSERT INTO section (`sectionName`,`path`) VALUES ("SWA Passenger List","/pdf_viewer/TS_11A_SWAM66-48.pdf");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Veterans List");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Admin Panel");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Export Feature");
+INSERT INTO section (`sectionName`,`path`) VALUES ("Medical Info");
 
 
 CREATE TABLE `permissions` (
