@@ -31,8 +31,8 @@ User.getAllUsers = () =>{
             } 
             for(user in res){
                 var index = parseInt(user);
-                res[index].role = res[index].username.replace("_"," ");
-                res[index].name = res[index].name.replace(" ","_");
+                // res[index].role = res[index].username.replace("_"," ");
+                // res[index].name = res[index].name.replace(" ","_");
             }
             return resolve(res);
         });
