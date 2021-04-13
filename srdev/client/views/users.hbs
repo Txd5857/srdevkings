@@ -16,6 +16,7 @@
     {{> navigation}}
     <br>
     <div class="container">
+        <div class="table-responsive">
         <table class="table">
         <thead>
             <tr class="table-active">
@@ -23,6 +24,7 @@
                 <th scope="col" style="width: 64%;">ROLE</th>
                 <th scope="col" style="width: 15%;" >BUS</th>
                 <th scope="col">TEAM</th>
+                <th scope="col">PASSWORD</th>
             </tr>
         </thead>
         {{#each users}}
@@ -44,11 +46,12 @@
                         Team Not Assigned
                     {{/if}}
                 </p></i></td>
-
+                <td><button type="button" class="btn btn-light userButton">Change <br>Password</button></td>
             </tr>
         </tbody>
         {{/each}}
         </table>
+        </div>
     </div>
 </body>
 </html>
