@@ -44,6 +44,7 @@ let initWebRoutes = (app) => {
     router.get("/admin/users/change_password/",loginController.checkLoggedIn, userListController.handleByeWorld);
     router.get("/admin/mission_creation", loginController.checkLoggedIn, missionCreationController.handleHelloWorld);
     router.get("/export", loginController.checkLoggedIn, exportController.handleHelloWorld);
+    router.get("/pdf_viewer", loginController.checkLoggedIn, pdfViewerController.handleHelloWorld);
     router.get("/pdf_viewer/:filePath", loginController.checkLoggedIn, pdfViewerController.handleHelloWorld);
 
     return app.use("/", router);
