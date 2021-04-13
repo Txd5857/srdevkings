@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title> Veterans </title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <a href="../public/scripts/veteran.js"></a>
+</head>
+
+<body>
+  <!-- <script src="js/scripts.js"></script> -->
+    {{!-- <div class="bus-nav" style="color:  white;">
+  <nav class="navbar navbar-expand-lg "> <a class="navbar-brand " href="#" data-abc="true">Honor Flight BUS BOOK</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto" style="color: white;">
+            <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true">Home <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Book</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Veterans</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Admin</a> </li>
+        </ul>
+    </div>
+</nav>
+</div> --}}
+{{> navigation}}
+<br>
+    <div class="container">
+    <h1> Buses </h1>
+    <form class="form-inline" style="float: right;">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-3" type="submit">Search</button>
+    </form>
+
+        <br>
+        <table class="table">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">NAME</th>
+                    <th scope="col">GUARDIAN</th>
+                    <th scope="col">BUS</th>
+                    <th scope="col">TEAM</th>
+                    <th scope="col">MED</th>
+                </tr>
+            </thead>
+            {{#each veterans}}
+            <tbody>
+                <tr>
+                    <th scope="row"><a href = "/veterans/{{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}}</a></th>
+                    <td class='yur'>{{this.guardian_name}}</td>
+                    <td><i class="fa fa-bus bus"><p>{{this.bus_id}}</p></i></td>
+                    <td>
+                        <i class="fa fa-user team{{ veteran.team_color }} ml-3">
+                            <span class="ml-2">
+                            {{#if this.team_color }}
+                            Team: {{ this.team_color }}
+                            {{else}}
+                            Team: Not Assigned
+                            {{/if}}
+                            </span>
+                        </i>
+                    </td>
+                    <td>
+                        <i class="fa fa-medkit medkit{{ veteran.med_code }}">
+                            <span class="ml-2">
+                                {{#if this.med_code }}
+                                Med Code: {{ this.med_code }}
+                                {{else}}
+                                Med Code: Not Assigned
+                                {{/if}}
+                            </span>
+                        </i>
+                    </td>
+                    {{!-- {{#ifCond this.med_code '==' "RED")}}
+                        <td><i class="fa fa-user userRed"><p>{{this.med_code}}</p></i></td> --}}
+                    {{!-- {{#elseif this.med_code == "BLUE"}}
+                        <td><i class="fa fa-user userBlu"><p>{{this.med_code}}</p></i></td>
+                    {{#elseif this.med_code == "YELLOW"}}
+                        <td><i class="fa fa-user userYell"><p>{{this.med_code}}</p></i></td>
+                    {{#elseif this.med_code == "GREEN"}}
+                        <td><i class="fa fa-user userGre"><p>{{this.med_code}}</p></i></td>
+                    {{#elseif this.med_code == "ORANGE"}}
+                        <td><i class="fa fa-user userOra"><p>{{this.med_code}}</p></i></td> --}}
+                    {{!-- {{else}}
+                        <td>None</td> --}}
+                    {{!-- {{/ifCond}} --}}
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+</body>
+</html>
