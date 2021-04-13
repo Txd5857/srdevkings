@@ -12,6 +12,10 @@ router.get('/register', (req,res) => {
     res.render('register');
 });
 
+router.get('/change_password', (req,res) => {
+    res.render('change_password');
+});
+
 
 // router.use('/veterans', VeteranPageRoutes);
 

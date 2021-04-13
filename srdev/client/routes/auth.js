@@ -9,6 +9,7 @@ const session = require('express-session');
 // initPassportLocal();
 
 router.post('/register', authController.register );
+router.post('/change_password', authController.change_password );
 
 // router.post('/login', authController.login );
 router.post('/login', passport.authenticate('local', {

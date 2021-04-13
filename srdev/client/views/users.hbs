@@ -33,8 +33,6 @@
             <tr class="table-active">
                 <th scope="col" style=" padding-left: 1%; width: 20%;">USERNAME</th>
                 <th scope="col" style="width: 64%;">ROLE</th>
-                <th scope="col" style="width: 15%;" >BUS</th>
-                <th scope="col">TEAM</th>
                 <th scope="col">PASSWORD</th>
             </tr>
         </thead>
@@ -43,21 +41,7 @@
             <tr>
                 <th scope="row" class="btn mb-0 btn-lg">{{ this.username }}</th>
                 <td class='yur'>{{ this.role }}</td>
-                <td><i class="fa fa-bus bus_2"><p>
-                    {{#if this.name }}
-                        {{ this.name }}
-                    {{else}}
-                        Bus Not Assigned
-                    {{/if}}
-                </p></i></td>
-                <td><i class="fa fa-user team{{ this.color }} ml-3"><p>
-                    {{#if this.color }}
-                        {{ this.color }}
-                    {{else}}
-                        Team Not Assigned
-                    {{/if}}
-                </p></i></td>
-                <td><button type="button" class="btn btn-light userButton">Change <br>Password</button></td>
+                <td><a href = "users/change_password/{{this.userID}}"><button type="button" class="btn btn-light userButton">Change <br>Password</button></a></td>
             </tr>
         </tbody>
         {{/each}}

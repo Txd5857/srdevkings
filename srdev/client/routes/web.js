@@ -41,7 +41,7 @@ let initWebRoutes = (app) => {
     router.get("/hotel_reservations",loginController.checkLoggedIn,hotelReservationListController.handleHelloWorld);
     router.get("/admin",loginController.checkLoggedIn, adminController.handleHelloWorld);
     router.get("/admin/users",loginController.checkLoggedIn, userListController.handleHelloWorld);
-    router.get("/admin/users/change_password/",loginController.checkLoggedIn, userListController.handleByeWorld);
+    router.get("/admin/users/change_password/:id",loginController.checkLoggedIn, adminController.handleByeWorld);
     router.get("/admin/mission_creation", loginController.checkLoggedIn, missionCreationController.handleHelloWorld);
     router.get("/export", loginController.checkLoggedIn, exportController.handleHelloWorld);
     router.get("/pdf_viewer", loginController.checkLoggedIn, pdfViewerController.handleHelloWorld);

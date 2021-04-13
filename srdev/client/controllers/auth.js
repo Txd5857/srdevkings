@@ -72,6 +72,27 @@ exports.register = (req,res)=>{
     });
 }
 
+exports.change_password = (req,res)=>{
+    console.log(req.body);
+    const { userID, newPasswordAttempt } = req.body;
+    mysqlConnection.query('SELECT userID FROM user WHERE userID=?', [userID], async (error, results)=>{
+
+        let hashedPassword = await bcrypt.hash(newPasswordAttempt, 10);
+        console.log(hashedPassword);
+        mysqlConnection.query('UPDATE user SET ? WHERE userID='+userID, {password: hashedPassword}, (error, results)=>{
+            if(error){
+                console.log(error);
+                return res.render('change_password', {
+                    message: 'An error occurred. Please try again.'
+                });
+            }else{
+                console.log(results);
+                return res.redirect('../admin/users');
+            }
+        })
+    });
+}
+
  // if( error ){
         //     console.log(error);
         // }
