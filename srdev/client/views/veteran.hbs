@@ -14,11 +14,12 @@
 
 <body style="background-color: #E5E5E5;">
   {{> navigation}}
+  <br>
   <div class="container">
     <div class="row">
     <div class="col-sm-6">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body" style="padding-bottom: 10%;">
           <h2>{{ veteran.first_name }} {{ veteran.last_name }}
             {{#if veteran.nickname}}
               <span>"{{ veteran.nickname }}"</span>
@@ -52,7 +53,7 @@
     </div>
     <div class="col-sm-6">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body"  style="padding-bottom: 7%;">
         <ul class="list-group">
           <li class="d-flex justify-content-between align-items-center mb-3">
             <h5>Comments</h5>
@@ -77,8 +78,8 @@
     <div class="col-sm-6">
       <div class="card">
         <h5 class="card-title list-group-item list-group-item-danger">Medical Information</h5>
-        <div class="card-body ml-3">
-          <li class="d-flex w-100 justify-content-between">
+        <div class="card-body ml-3" style="margin-bottom: 3%;">
+          <li class="d-flex justify-content-between" style="width: 95%;">
             <h5>Uses</h5>
               <p>
                 <br>Cane: {{#if veteran.med_cane}} Yes. {{else}} No.{{/if}}
@@ -101,7 +102,7 @@
                 <br>Seizures: {{#if veteran.med_seizures}} Yes. {{else}} No.{{/if}}
             </p>
           </li>  
-          <li class="d-flex w-100 justify-content-between">
+          <li class="d-flex w-75 justify-content-between">
             <h5>Prescriptions (RX)</h5>
               {{#if veteran.med_list }}
               <br>{{ veteran.med_list }}
@@ -109,7 +110,7 @@
               <br>None
               {{/if}}
           </li>  
-          <li class="d-flex w-100 justify-content-between">
+          <li class="d-flex w-75 justify-content-between">
             <h5>Diet Restriction</h5>
               {{#if veteran.diet_restrictions }}
               <p>{{ veteran.diet_restrictions }}</p>
@@ -117,8 +118,8 @@
               <p>None</p>
               {{/if}}
           </li>
-          <li class="d-flex w-100 justify-content-between">
-            <h5>Inform emergency respondsers of...</h5>
+          <li class="d-inline-block">
+            <h5>Inform emergency respondsers of</h5>
             <p>
               <br>Any Symptoms
               <br>Time of onset of symptoms
@@ -130,7 +131,7 @@
     </div>
     <div class="col-sm-6">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body" style="margin-bottom: 50%;">
           <li class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="card-title">General</h5>
           </li>
@@ -155,7 +156,7 @@
             <br>Back-up
             {{/if}}
           </li>  
-          <li class="d-flex w-100 justify-content-between">
+          <li class="d-flex justify-content-between" style="width: 100%;">
             <h5>Needs</h5></br>
               <br>Oxygen: {{#if veteran.med_oxygen}} Yes. {{else}} No.{{/if}}
               <br>Nebulizer: {{#if veteran.med_nebulizer}} Yes. {{else}} No.{{/if}}
@@ -175,7 +176,7 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body" style="margin-top: 5%;">
           <li class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="card-title">Hotel Room</h5>
             <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" 
@@ -196,7 +197,7 @@
     </div>
     <div class="col-sm-6">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body" style="margin-bottom: 13%;">
           <h5 class="card-title">Guardian</h5>
           <div class="card-body ml-3">
             <li class="d-flex w-100 justify-content-between">
@@ -255,7 +256,7 @@
     </div>
   </div>
   <br>
-  <div class="row" style="margin-top: -15%;">
+  <div class="row" style="margin-top: -24%;">
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
