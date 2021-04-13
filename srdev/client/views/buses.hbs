@@ -41,24 +41,31 @@
     </form>
 
         <br>
+        <h1>Bus 1</h1>
         <table class="table">
             <thead>
                 <tr class="table-active">
                     <th scope="col">NAME</th>
-                    <th scope="col">GUARDIAN</th>
-                    <th scope="col">BUS</th>
+                    <th scope="col">CHAIR</th>
                     <th scope="col">TEAM</th>
                     <th scope="col">MED</th>
+                    <th scope="col">GUARDIAN</th>
                 </tr>
             </thead>
-            {{#each veterans}}
+            {{#each buses}}
             <tbody>
+                {{#ifEquals this.name "Bus 1"}}
                 <tr>
                     <th scope="row"><a href = "/veterans/{{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}}</a></th>
-                    <td class='yur'>{{this.guardian_name}}</td>
-                    <td><i class="fa fa-bus bus"><p>{{this.bus_id}}</p></i></td>
                     <td>
-                        <i class="fa fa-user team{{ veteran.team_color }} ml-3">
+                        {{#if this.med_chair_loc }}
+                        {{ this.med_chair_loc }}
+                        {{else}}
+                        ???
+                        {{/if}}
+                    </td>
+                    <td>
+                        <i class="fa fa-user team{{ this.team_color }} ml-3">
                             <span class="ml-2">
                             {{#if this.team_color }}
                             Team: {{ this.team_color }}
@@ -69,7 +76,7 @@
                         </i>
                     </td>
                     <td>
-                        <i class="fa fa-medkit medkit{{ veteran.med_code }}">
+                        <i class="fa fa-medkit medkit{{ this.med_code }}">
                             <span class="ml-2">
                                 {{#if this.med_code }}
                                 Med Code: {{ this.med_code }}
@@ -79,20 +86,121 @@
                             </span>
                         </i>
                     </td>
-                    {{!-- {{#ifCond this.med_code '==' "RED")}}
-                        <td><i class="fa fa-user userRed"><p>{{this.med_code}}</p></i></td> --}}
-                    {{!-- {{#elseif this.med_code == "BLUE"}}
-                        <td><i class="fa fa-user userBlu"><p>{{this.med_code}}</p></i></td>
-                    {{#elseif this.med_code == "YELLOW"}}
-                        <td><i class="fa fa-user userYell"><p>{{this.med_code}}</p></i></td>
-                    {{#elseif this.med_code == "GREEN"}}
-                        <td><i class="fa fa-user userGre"><p>{{this.med_code}}</p></i></td>
-                    {{#elseif this.med_code == "ORANGE"}}
-                        <td><i class="fa fa-user userOra"><p>{{this.med_code}}</p></i></td> --}}
-                    {{!-- {{else}}
-                        <td>None</td> --}}
-                    {{!-- {{/ifCond}} --}}
+                    <td class='yur'>
+                        {{this.guardian_name}}
+                    </td>
                 </tr>
+                {{/ifEquals}}
+            </tbody>
+            {{/each}}
+        </table>
+
+        <br>
+        <h1>Bus 2</h1>
+        <table class="table">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">NAME</th>
+                    <th scope="col">CHAIR</th>
+                    <th scope="col">TEAM</th>
+                    <th scope="col">MED</th>
+                    <th scope="col">GUARDIAN</th>
+                </tr>
+            </thead>
+            {{#each buses}}
+            <tbody>
+                {{#ifEquals this.name "Bus 2"}}
+                <tr>
+                    <th scope="row"><a href = "/veterans/{{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}}</a></th>
+                    <td>
+                        {{#if this.med_chair_loc }}
+                        {{ this.med_chair_loc }}
+                        {{else}}
+                        ???
+                        {{/if}}
+                    </td>
+                    <td>
+                        <i class="fa fa-user team{{ this.team_color }} ml-3">
+                            <span class="ml-2">
+                            {{#if this.team_color }}
+                            Team: {{ this.team_color }}
+                            {{else}}
+                            Team: Not Assigned
+                            {{/if}}
+                            </span>
+                        </i>
+                    </td>
+                    <td>
+                        <i class="fa fa-medkit medkit{{ this.med_code }}">
+                            <span class="ml-2">
+                                {{#if this.med_code }}
+                                Med Code: {{ this.med_code }}
+                                {{else}}
+                                Med Code: Not Assigned
+                                {{/if}}
+                            </span>
+                        </i>
+                    </td>
+                    <td class='yur'>
+                        {{this.guardian_name}}
+                    </td>
+                </tr>
+                {{/ifEquals}}
+            </tbody>
+            {{/each}}
+        </table>
+
+        <br>
+        <h1>Bus 3</h1>
+        <table class="table">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">NAME</th>
+                    <th scope="col">CHAIR</th>
+                    <th scope="col">TEAM</th>
+                    <th scope="col">MED</th>
+                    <th scope="col">GUARDIAN</th>
+                </tr>
+            </thead>
+            {{#each buses}}
+            <tbody>
+                {{#ifEquals this.name "Bus 3"}}
+                <tr>
+                    <th scope="row"><a href = "/veterans/{{this.veteran_id}}" class="btn mb-0 btn-lg">{{this.veteran_name}}</a></th>
+                    <td>
+                        {{#if this.med_chair_loc }}
+                        {{ this.med_chair_loc }}
+                        {{else}}
+                        ???
+                        {{/if}}
+                    </td>
+                    <td>
+                        <i class="fa fa-user team{{ this.team_color }} ml-3">
+                            <span class="ml-2">
+                            {{#if this.team_color }}
+                            Team: {{ this.team_color }}
+                            {{else}}
+                            Team: Not Assigned
+                            {{/if}}
+                            </span>
+                        </i>
+                    </td>
+                    <td>
+                        <i class="fa fa-medkit medkit{{ this.med_code }}">
+                            <span class="ml-2">
+                                {{#if this.med_code }}
+                                Med Code: {{ this.med_code }}
+                                {{else}}
+                                Med Code: Not Assigned
+                                {{/if}}
+                            </span>
+                        </i>
+                    </td>
+                    <td class='yur'>
+                        {{this.guardian_name}}
+                    </td>
+                </tr>
+                {{/ifEquals}}
             </tbody>
             {{/each}}
         </table>
