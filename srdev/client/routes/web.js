@@ -18,6 +18,9 @@ initPassportLocal();
 let router = express.Router();
 
 let initWebRoutes = (app) => {
+
+    // Establish routes that users can access
+    // and which functions are fired before the target page is loaded
     router.get('/', loginController.checkLoggedIn,homePageController.handleHelloWorld)
     router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
@@ -26,19 +29,11 @@ let initWebRoutes = (app) => {
         successFlash: true,
         failureFlash: true
     }));
-
-    //TODO: Kill this page before we hand off to the client
-    router.get('/register',  (req,res) =>{
-        res.render('register');
-    });
     router.post("/logout", loginController.postLogOut);
-    // router.get('/homepage', (req,res) =>{ res.render('homepage'); });
     router.get("/homepage", loginController.checkLoggedIn, homePageController.handleHelloWorld);
-    
     router.get("/veterans",loginController.checkLoggedIn, veteransController.handleHelloWorld);
     router.get("/veterans/:id", loginController.checkLoggedIn, veteransController.handleByeWorld);
     router.get("/buses",loginController.checkLoggedIn,busListController.handleHelloWorld);
-    router.get("/hotel_reservations",loginController.checkLoggedIn,hotelReservationListController.handleHelloWorld);
     router.get("/admin",loginController.checkLoggedIn, adminController.handleHelloWorld);
     router.get("/admin/users",loginController.checkLoggedIn, userListController.handleHelloWorld);
     router.get("/admin/users/change_password/:id",loginController.checkLoggedIn, adminController.handleByeWorld);
