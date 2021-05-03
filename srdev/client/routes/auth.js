@@ -2,15 +2,12 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth');
 const passport = require('passport');
-const passport_local= require('passport-local');
-const flash = require('express-flash');
-const session = require('express-session');
 
-// initPassportLocal();
 
-router.post('/register', authController.register );
+// router.post('/register', authController.register ); <-- THIS ROUTE HAS BEEN RETIRED
+router.post('/change_password', authController.change_password ); // <-- Allows the user to change the password of an account
 
-// router.post('/login', authController.login );
+// Attemps to login with the data that was passed when this route was called
 router.post('/login', passport.authenticate('local', {
     successRedirect : '/',
     failureRedirect : '/login',

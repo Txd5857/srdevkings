@@ -7,18 +7,24 @@ exports.login = async (req,res)=>{
         const { username, password } = req.body;
         
         if( !username || !password ){
+            // One of the required fields was empty.
+            // Send an error to the client and alert the user.
             return res.status(400).render('create', {
                 message: 'Please provide an username and a password'
             });
         }
 
-
+        // Grab the targeted username and compare the password for that username to the password
+        // that was given by the client.
         mysqlConnection.query('SELECT * FROM user WHERE username=?', [username], async (error, results)=>{
             if(!results || results == "" || !(await bcrypt.compare(password, results[0].password)) ){
+                // Username doesn't exist or password was wrong.
+                // Send an error back to the client.
                 res.status(401).render('create', {
                     message: 'Email or password is incorrect.'
                 });
             }else{
+                // User logged in successfully! Create a session for them using a JsonWebToken.
                 const id = results[0].user_id;
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
                     expiresIn: '90d'
@@ -72,20 +78,23 @@ exports.register = (req,res)=>{
     });
 }
 
- // if( error ){
-        //     console.log(error);
-        // }
+exports.change_password = (req,res)=>{
+    console.log(req.body);
+    const { userID, newPasswordAttempt } = req.body;
+    mysqlConnection.query('SELECT userID FROM user WHERE userID=?', [userID], async (error, results)=>{
 
-        // if( results.length > 0 ){
-        //     return res.render('signup', {
-        //         message: 'Account creation: Failure. That email is taken.'
-        //     });
-        // } else if( password !== confirmpassword){
-        //     return res.render('signup', {
-        //         message: 'Account creation: Failure. Passwords do not match.'
-        //     });
-        // }else if( !name || !email || !address || !zip || !password || !confirmpassword || name == "" || email == "" || address == "" || zip == "" || password == "" || confirmpassword == ""){
-        //     return res.render('signup',{
-        //         message: 'Account creation: Failure. One or more fields are blank.'
-        //     });
-        // }
+        let hashedPassword = await bcrypt.hash(newPasswordAttempt, 10);
+        console.log(hashedPassword);
+        mysqlConnection.query('UPDATE user SET ? WHERE userID='+userID, {password: hashedPassword}, (error, results)=>{
+            if(error){
+                console.log(error);
+                return res.render('change_password', {
+                    message: 'An error occurred. Please try again.'
+                });
+            }else{
+                console.log(results);
+                return res.redirect('../admin/users');
+            }
+        })
+    });
+}

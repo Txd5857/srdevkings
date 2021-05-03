@@ -1,6 +1,8 @@
 USE honor_flight;
 
 DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `section`;
+DROP TABLE IF EXISTS `permissions`;
 
 CREATE TABLE `user` (
 `userID` smallint unsigned NOT NULL AUTO_INCREMENT,
@@ -10,6 +12,21 @@ CREATE TABLE `user` (
 `password` varchar(255) DEFAULT NULL,
 PRIMARY KEY (`userID`),
 CONSTRAINT `teamID_fk` FOREIGN KEY (`teamID`) REFERENCES `team` (`team_id`));
+
+CREATE TABLE `section` (
+  `sectionID` smallint unsigned NOT NULL AUTO_INCREMENT,
+  `sectionName` varchar(32) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`sectionID`));
+  
+  CREATE TABLE `permissions` (
+  `userID` smallint unsigned NOT NULL,
+  `sectionID` smallint unsigned NOT NULL,
+  `viewable` tinyint(1),
+  `editable` tinyint(1),
+  PRIMARY KEY (`userID`, `sectionID`),
+  CONSTRAINT `userID_fk` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
+  CONSTRAINT `sectionID_fk` FOREIGN KEY (`sectionID`) REFERENCES `section` (`sectionID`));
 
 
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"test","Admin","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG");
@@ -25,15 +42,8 @@ INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Mission
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Safety_Assistant","Safety Assistant","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Safety Assistant
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Advance","Advance","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Advance
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Photographer","Photographer","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Photographer
-
-DROP TABLE IF EXISTS `permissions`;
-DROP TABLE IF EXISTS `section`;
-
-CREATE TABLE `section` (
-  `sectionID` smallint unsigned NOT NULL AUTO_INCREMENT,
-  `sectionName` varchar(32) DEFAULT NULL,
-  `path` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`sectionID`));
+                                                                            
+                                                                            
 
 INSERT INTO section (`sectionName`) VALUES ("Cover Page");
 INSERT INTO section (`sectionName`,`path`) VALUES ("Itinerary","/pdf_viewer/F2_Itinerary.pdf");
@@ -70,14 +80,6 @@ INSERT INTO section (`sectionName`) VALUES ("Export Feature");
 INSERT INTO section (`sectionName`) VALUES ("Medical Info");
 
 
-CREATE TABLE `permissions` (
-  `userID` smallint unsigned NOT NULL,
-  `sectionID` smallint unsigned NOT NULL,
-  `viewable` tinyint(1),
-  `editable` tinyint(1),
-  PRIMARY KEY (`userID`, `sectionID`),
-  CONSTRAINT `userID_fk` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
-  CONSTRAINT `sectionID_fk` FOREIGN KEY (`sectionID`) REFERENCES `section` (`sectionID`));
 
 -- Generic Admin
 INSERT INTO permissions VALUES (1,1,1,1);

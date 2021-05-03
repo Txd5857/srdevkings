@@ -9,15 +9,23 @@ let handleHelloWorld = async (req, res) => {
     let userrole = req.session;
     console.log(userrole);
 
-    // return res.render('homepage', { user_id : userid, user:userid });
-    // console.log(req.session,"test")
-
+    // construct a server call to find out which pages this user is allowed to view
     const api_url = "http://localhost:5002/api/pages/"+userid;
     try {
-         const pageAPI = await axios.get(api_url);
-         return res.render('homepage', { user_id : userid, pages : pageAPI.data});
+
+        // make the server call so we have a list of pages the user is allowed to view
+        const pageAPI = await axios.get(api_url);
+
+        // render the homepage with the list of pages they can access
+        return res.render('homepage', { 
+             user_id : userid, 
+             pages : pageAPI.data
+            }
+        );
     }catch (error) {
         if(error.response){
+            // something went wrong
+            // render a homepage with minimal functionality
             return res.render('homepage');
         }
     }

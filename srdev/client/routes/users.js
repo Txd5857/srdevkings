@@ -8,42 +8,19 @@ userRouter.use(function timeLog (req, res, next) {
     next()
   });
 
-// const user_list = [];
 userRouter.get('', async(req,res)=>{
     try {
+         // Get a list of all users in the users table of the database
+         // return that list to be rendered for the client.
+         // This functionality is only used on the Admin panel.
          const userAPI = await axios.get('http://localhost:5002/api/users');
-        //  console.log("faa",userAPI.data);
-        //  user_list = userAPI.data;
          res.render('users', { users : userAPI.data});
-         console.log("teat",users);
+         console.log("test",users);
     }catch (error) {
         if(error.response){
             console.log(error.response.data);
         }
     }
-    // console.log("try");
-    // res.render('users');
 });
-
-// usersRouter.get('/:id', async(req,res)=>{
-//     const user_id = req.params.id;
-//     console.log(user_id);
-//     const api_url = "http://localhost:5002/api/users/"+user_id;
-//     try {
-//          const userAPI = await axios.get(api_url);
-//          console.log(userAPI.data);
-    
-//         res.render('user', { user_id : user_id, user : userAPI.data});
-//         console.log("completed",user);
-//     }catch (error) {
-//         if(error.response){
-//             console.log(error.response.data);
-//         }
-//     }
-//     // console.log("try");
-//     // res.render('users');
-// });
-
-
 
 module.exports = userRouter;
