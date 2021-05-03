@@ -28,6 +28,7 @@ INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Photogr
 
 DROP TABLE IF EXISTS `permissions`;
 DROP TABLE IF EXISTS `section`;
+
 CREATE TABLE `section` (
   `sectionID` smallint unsigned NOT NULL AUTO_INCREMENT,
   `sectionName` varchar(32) DEFAULT NULL,

@@ -6,6 +6,8 @@ initPassportLocal();
 
 let handleHelloWorld = async (req, res) => {
     let userid = req.session.passport.user;
+    let userrole = req.session;
+    console.log(userrole);
 
     // return res.render('homepage', { user_id : userid, user:userid });
     // console.log(req.session,"test")
