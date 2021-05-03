@@ -3,6 +3,7 @@ const Router = express.Router();
 const mysql = require('mysql');
 const mysqlConnection = require("../db_config/connection");
 
+//initialitzing the object 
 const User = function(user){
     this.user_id = user.user_id,
     this.username = user.username,

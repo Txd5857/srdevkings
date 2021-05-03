@@ -137,7 +137,7 @@ a.contentCol {
     padding-top: 30%;
 }
 
-div.contentColumn {
+a.contentColumn {
     background-color: #EFEFEF;
     border: none;
     margin: 2px;
@@ -271,6 +271,51 @@ div.adminColumn2 {
 .medkitRed {
     color: #ffffff;
     background-color: #ed1212;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.medkitBlue {
+    color: #ffffff;
+    background-color: #4c65e4;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.medkitOra {
+    color: #ffffff;
+    background-color: #ff8329;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.medkitPurple {
+    color: #ffffff;
+    background-color: #a14ce4;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.medkitGold {
+    color: #ffffff;
+    background-color: #f1ae00;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.medkitSilver {
+    color: #ffffff;
+    background-color: #fbfbfb;
     padding: 15px 15px;
     text-align: center;
     display: inline-block;

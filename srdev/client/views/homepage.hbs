@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title> Bus Book </title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  {{!-- Bootstrap 4 --}}
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -47,56 +49,13 @@
 
 <body>
   {{> navigation userID=user_id }}
-  {{!-- <div class='clearfix'></div>
-  <div class='center' style="margin-left: 10%; margin-right: 10%;">
-  <ul class="press"> --}}
   <div class="container">
     <div class="list-group">
-  {{#each pages}}
-    <a href={{this.path}} class="list-group-item list-group-item-action">{{this.sectionName}}</a>
-
-  {{!-- <li> --}}
-     {{!-- <div class="press-logo">
-            </div>
-    <a href={{this.path}} class="contentCol"><div class="contentColumn list-group-item list-group-item-action">{{this.sectionName}}</div></a> --}}
-  {{!-- </li> --}}
-  {{/each}}
-  
+      <br>
+    {{#each pages}}
+    <a href={{this.path}} class="contentColumn list-group-item list-group-item-action">{{this.sectionName}}</a>
+    {{/each}}
     </div>
-    </div>
-{{!-- </div>
-  <div class="row" style="margin-left: 10%; margin-right: 10%;">
-    <div class="list-group col-sm-4"></div>
-    <a href="/pdf_viewer/F2_Itinerary.pdf" class="contentCol"><div class="contentColumn list-group-item list-group-item-action">Itinerary</div></a>
-        <a href="/pdf_viewer/F3_Key_Mission_Contacts.pdf"><div class="contentColumn list-group-item list-group-item-action">Key Contacts</div></a>
-        <a href="/pdf_viewer/F4_CREW_Responsibilities_by_ITINERARY.pdf"><div class="contentColumn list-group-item list-group-item-action">Crew Assignments</div></a>
-        <a href="/pdf_viewer/F6_Advance_Team_Checklist.pdf"><div class="contentColumn list-group-item list-group-item-action">Advance Crew Checklist</div></a>
-        <a href="/pdf_viewer/F7_Arlington_Security_Message.pdf"><div class="contentColumn list-group-item list-group-item-action">Arlington Information</div></a>
-        <a href="/pdf_viewer/F8_Arlington_Approval_Information.pdf"><div class="contentColumn list-group-item list-group-item-action">Arlington Reservation</div></a>
-        <a href="/pdf_viewer/F10_tour_notes_with_Navy_Museum.pdf"><div class="contentColumn list-group-item list-group-item-action">Navy Yard and Museum Information</div></a>
-        <a href="/pdf_viewer/F10_DC_tour_notes_rev_4-24-19.pdf"><div class="contentColumn list-group-item list-group-item-action">DC Tour Notes</div></a>
-          </div>
-              <div class="list-group col-sm-4">
-
-          <a href="/pdf_viewer/F11_Incident_Report.pdf" class="contentCol"><div class="contentColumn list-group-item list-group-item-action">Incident Report Forms H132</div></a>
-          <a href="/pdf_viewer/F12_Hilton_Fire_Procedure.pdf"><div class="contentColumn list-group-item list-group-item-action">Hilton Fire Alarm Evac Procedure H102</div></a>
-          <a href="/pdf_viewer/F13_Hilton_Crisis_Plan.pdf"><div class="contentColumn list-group-item list-group-item-action">Hilton Crisis Plan</div></a>
-          <a href="/pdf_viewer/F14_POW-MIA_Table_Ceremony.pdf"><div class="contentColumn list-group-item list-group-item-action">POW MIA Ceremony</div></a>
-          <a href=""><div class="contentColumn list-group-item list-group-item-action">Banquet Script (X)</div></a>
-          <a href=""><div class="contentColumn list-group-item list-group-item-action">Fact Sheet (X)</div></a>
-          <a href="/pdf_viewer/TS1_Crew_Contact_Information.pdf"><div class="contentColumn list-group-item list-group-item-action">Crew Information</div></a>
-          <a href="/pdf_viewer/TS2_National_Spreadsheet.pdf"><div class="contentColumn list-group-item list-group-item-action">National Spreadsheet</div></a>
-      </div>
-      <div class="list-group col-sm-4">
-        <a href="/buses" class="contentCol"><div class="contentColumn list-group-item list-group-item-action">Bus Lists</div></a>
-        <a href="/pdf_viewer/TS6_Vet_&_Guardian_Conact_Info.pdf"><div class="contentColumn list-group-item list-group-item-action">Veteran and Guardian Phone Numbers</div></a>
-        <a href="/hotel_reservations"><div class="contentColumn list-group-item list-group-item-action">Hilton Room Assignments</div></a>
-        <a href="/pdf_viewer/TS8_Service_Notes.pdf"><div class="contentColumn list-group-item list-group-item-action">Veteran Service Notes</div></a>
-        <a href="/pdf_viewer/TS9_Plane_Boarding.pdf"><div class="contentColumn list-group-item list-group-item-action">Plane Boarding List</div></a>
-        <a href=""><div class="contentColumn list-group-item list-group-item-action">Roll Call Sheets (X)</div></a>
-        <a href=""><div class="contentColumn list-group-item list-group-item-action">Hotel Check In List Sunday (X)</div></a>
-        <a href="/pdf_viewer/TS_11A_SWAM66-48.pdf"><div class="contentColumn list-group-item list-group-item-action">SWA Passenger List</div></a>
-      </div>
-  </div> --}}
+  </div>
 </body>
 </html>
