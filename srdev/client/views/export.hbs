@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title> Admin </title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  {{!-- Bootstrap 4 --}}
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,15 +15,15 @@
 </head>
 
 <body style="background-color: #E5E5E5;">
-    {{> navigation}}
-    <h1 class="title"> Export </h1>
-    <div class="container exportContainer">
-        <div class="card block">
-            <div class="card-body text-center">
-                <p class="card-text ">Export the Bus Book to a PDF that you can access offline. Be aware that the Bus Book contains sensitive information that should not be stored on your device long-term. Please delete the Bus Book PDF file when it is no longer needed.</p>
-                <input class="exportButton" type="submit" value="EXPORT AND DOWNLOAD">
-            </div>
-      </div>
+  {{> navigation}}
+  <h1 class="title"> Export </h1>
+  <div class="container exportContainer">
+      <div class="card block">
+          <div class="card-body text-center">
+              <p class="card-text ">Export the Bus Book to a PDF that you can access offline. Be aware that the Bus Book contains sensitive information that should not be stored on your device long-term. Please delete the Bus Book PDF file when it is no longer needed.</p>
+              <input class="exportButton" type="submit" value="EXPORT AND DOWNLOAD">
+          </div>
     </div>
+  </div>
 </body>
 </html>

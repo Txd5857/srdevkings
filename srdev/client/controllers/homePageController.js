@@ -6,6 +6,8 @@ initPassportLocal();
 
 let handleHelloWorld = async (req, res) => {
     let userid = req.session.passport.user;
+    let userrole = req.session;
+    console.log(userrole);
 
     // construct a server call to find out which pages this user is allowed to view
     const api_url = "http://localhost:5002/api/pages/"+userid;

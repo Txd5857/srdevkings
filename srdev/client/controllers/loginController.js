@@ -25,8 +25,11 @@ let handleLogin = async (req, res) => {
 
     try {
         await loginService.handleLogin(req.body.username, req.body.password);
+<<<<<<< HEAD
         console.log("awaited");
         // Login was successful. Send the user to the homepage.
+=======
+>>>>>>> main
         return res.redirect("/homepage");
     } catch (err) {
         req.flash("errors", err);

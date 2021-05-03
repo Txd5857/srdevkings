@@ -43,7 +43,18 @@ INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Safety_
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Advance","Advance","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Advance
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Photographer","Photographer","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Photographer
 
+<<<<<<< HEAD
 
+=======
+DROP TABLE IF EXISTS `permissions`;
+DROP TABLE IF EXISTS `section`;
+
+CREATE TABLE `section` (
+  `sectionID` smallint unsigned NOT NULL AUTO_INCREMENT,
+  `sectionName` varchar(32) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`sectionID`));
+>>>>>>> main
 
 INSERT INTO section (`sectionName`) VALUES ("Cover Page");
 INSERT INTO section (`sectionName`,`path`) VALUES ("Itinerary","/pdf_viewer/F2_Itinerary.pdf");
