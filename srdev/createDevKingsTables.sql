@@ -42,8 +42,6 @@ INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Mission
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Safety_Assistant","Safety Assistant","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Safety Assistant
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Advance","Advance","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Advance
 INSERT INTO user (`teamID`, `username`, `role`, `password`) VALUES (440,"Photographer","Photographer","$2a$10$PSmlnNjKsbpwD54e0qB40ez..CWLyq1UF6E1vYeJYL6AHt2YkBKNG"); -- Photographer
-                                                                            
-                                                                            
 
 INSERT INTO section (`sectionName`) VALUES ("Cover Page");
 INSERT INTO section (`sectionName`,`path`) VALUES ("Itinerary","/pdf_viewer/F2_Itinerary.pdf");
