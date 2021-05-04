@@ -24,7 +24,7 @@ const Bus = function(bus){
     this.gl_tee = bus.gl_tee
 }
 
-// get all teams
+// get all buses
 Bus.getAllBuses = (result) =>{
     mysqlConnection.query("SELECT veteran.bus_id, bus.name, veteran.med_code, veteran.veteran_id, veteran.med_chair_loc, CONCAT(guardian.last_name, ', ', guardian.first_name) as guardian_name, CONCAT(veteran.last_name, ', ', veteran.first_name) as veteran_name, team.color AS team_color FROM veteran INNER JOIN guardian ON veteran.guardian_id=guardian.guardian_id LEFT JOIN team ON veteran.team_id = team.team_id LEFT JOIN bus ON veteran.bus_id = bus.bus_id WHERE veteran.service_branch IS NOT NULL AND veteran.service_branch != '' ORDER BY veteran_name", (err, res)=>{
         if(err){

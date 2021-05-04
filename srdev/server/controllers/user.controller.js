@@ -3,7 +3,6 @@ const UserModel = require('../models/user.model');
 
 // get all user list
 exports.getUserList = async (req, res,next)=> {
-    //console.log('here all employees list');
     try{
         let results = await UserModel.getAllUsers();
         console.log(results);
@@ -17,13 +16,9 @@ exports.getUserList = async (req, res,next)=> {
 
 // get user by ID
 exports.getUserByID = (req, res)=>{
-    //console.log('get emp by id');
     UserModel.getUserByID(req.params.id, (err, user)=>{
         if(err)
         res.send(err);
-
-         // Format Guardian's DOB for display
-
         console.log('single user data',user[0]);
         res.send(user[0]);
     })

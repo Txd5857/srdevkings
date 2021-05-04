@@ -3,7 +3,6 @@ const MissionModel = require('../models/mission.model');
 
 // get all mission list
 exports.getMissionList = (req, res)=> {
-    //console.log('here all employees list');
     MissionModel.getAllMissions((err, employees) =>{
         console.log('We are here');
         if(err)
@@ -15,7 +14,6 @@ exports.getMissionList = (req, res)=> {
 
 // get mission by ID
 exports.getMissionByID = (req, res)=>{
-    //console.log('get emp by id');
     MissionModel.getMissionByID(req.params.id, (err, mission)=>{
         if(err)
         res.send(err);

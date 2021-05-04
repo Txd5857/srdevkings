@@ -3,7 +3,6 @@ const VeteranModel = require('../models/veteran.model');
 
 // get all veteran list
 exports.getVeteranList = async (req, res,next)=> {
-    //console.log('here all employees list');
     try{
         let results = await VeteranModel.getAllVeterans();
         console.log(results);
@@ -17,7 +16,6 @@ exports.getVeteranList = async (req, res,next)=> {
 
 // get veteran by ID
 exports.getVeteranByID = (req, res)=>{
-    //console.log('get emp by id');
     VeteranModel.getVeteranByID(req.params.id, (err, veteran)=>{
         if(err)
         res.send(err);

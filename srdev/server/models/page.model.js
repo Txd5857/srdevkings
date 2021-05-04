@@ -12,7 +12,7 @@ const Page = function(page){
 
 }
 
-// get all teams
+// get all pages
 Page.getAllPages = (id, result) =>{
         mysqlConnection.query("select permissions.userID, section.sectionName, section.path from permissions left join section on permissions.sectionID = section.sectionID where permissions.viewable = 1 AND section.path != '' AND permissions.userID = ?", id, (err, res)=>{
             if(err) {   
@@ -24,6 +24,5 @@ Page.getAllPages = (id, result) =>{
         });
   
 };
-// // get
 
 module.exports = Page;
