@@ -30,9 +30,6 @@ const authRoute = require('./client/routes/auth');
 const publicDir = path.join(__dirname, 'client/public'); // Public Directory
 app.use(express.static(publicDir));                         // Serve files in public directory
 
-// app.use('/static', express.static(publicDir));
-// app.use(express.static("public"));
-
 //use cookie parser
 app.use(cookieParser('secret'));
 
@@ -85,13 +82,6 @@ hbs.registerHelper('ifEquals', function(v1, v2, options) {
 });
 
 app.set('views', path.join(__dirname, 'client/views')); 
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
-
-
-// Pages
-// app.use('/', pageRoute);
-// initWebRoutes(app);
 
 // API
 app.use('/api',apiRoute);
